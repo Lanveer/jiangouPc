@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../public/css/basic.css">
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link href="../public/lib/bootstrap.min.css" rel="stylesheet" />
+    <script src="../public/lib/jquery-1.7.2.js"></script>
+    <script src="../public/lib/angular.min.js"></script>
+    <script src="../public/lib/ui-bootstrap.min.js"></script>
+    <script src="../public/lib/ui-bootstrap-tpls.min.js"></script>
+</head>
+<body>
+
+<div id="con">
+
+        <!--top开始-->
+            <top></top>
+        <!--top结束-->
+
+
+    <div id="search">
+        <div class="logo">
+            <img src="../public/imgs/basic/logo.png" alt="">
+        </div>
+
+        <div class="search-box">
+            <div class="key">
+                <span>闲置二手</span>
+                <div class="key-list">
+                    <a href="">新旧车辆</a>
+                    <a href="">新旧车辆</a>
+                    <a href="">新旧车辆</a>
+                    <a href="">新旧车辆</a>
+                    <a href="">新旧车辆</a>
+                    <a href="">新旧车辆</a>
+                    <a href="">新旧车辆</a>
+                    <a href="">新旧车辆</a>
+                </div>
+            </div>
+            <div class="search-input">
+                <span></span>
+                <input type="text" placeholder="请输入关键字进行搜索">
+            </div>
+
+
+            <div class="search-btn">
+                搜索
+            </div>
+        </div>
+    </div>
+
+    <!--顶部导航开始-->
+    <div class="banner-nav">
+        <div class="nav">
+            <a href="" class="nav-first">全部 </a>
+            <a href="index.html">首页</a>
+            <a href="food.html">美食</a>
+            <a href="benifit.html">优惠</a>
+            <a href="jour.html">景点</a>
+            <a href="news.html">新闻</a>
+            <a href="circle.html">圈子</a>
+        </div>
+
+        <div class="nav-list index-nav-list">
+            <ul>
+                <li>
+                    <a href="">闲置二手
+                        <span class="nav-arrow"></span>
+                        <span>手机</span>
+                        <span>电脑</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">新旧车辆
+                        <span class="nav-arrow"></span>
+                        <span>手机</span>
+                        <span>电脑</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">房屋租赁
+                        <span class="nav-arrow"></span>
+                        <span>手机</span>
+                        <span>电脑</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">工作招聘
+                        <span class="nav-arrow"></span>
+                        <span>手机</span>
+                        <span>电脑</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">商家服务
+                        <span class="nav-arrow"></span>
+                        <span>手机</span>
+                        <span>电脑</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-detail index-nav-detail">
+                <div class="index-sec  sec-a" style="display: none;">
+                    <div class="sec-header">
+                        <h1>闲置二手</h1>
+                        <span>更多</span>
+                    </div>
+                    <div class="sec-body">
+                        <a href="">手机电脑</a>
+                        <a href="">家用电器</a>
+                    </div>
+                </div>
+                <div class="index-sec  sec-a">
+                    <div class="sec-header">
+                        <h1>新旧车辆</h1>
+                        <span>更多</span>
+                    </div>
+                    <div class="sec-body">
+                        <a href="">手机电脑</a>
+                        <a href="">家用电器</a>
+                    </div>
+                </div>
+                <div class="index-sec  sec-a">
+                    <div class="sec-header">
+                        <h1>房屋租赁</h1>
+                        <span>更多</span>
+                    </div>
+                    <div class="sec-body">
+                        <a href="">手机电脑</a>
+                        <a href="">家用电器</a>
+                    </div>
+                </div>
+                <div class="index-sec  sec-a">
+                    <div class="sec-header">
+                        <h1>工作招聘</h1>
+                        <span>更多</span>
+                    </div>
+                    <div class="sec-body">
+                        <a href="">手机电脑</a>
+                        <a href="">家用电器</a>
+                    </div>
+                </div>
+                <div class="index-sec  sec-a">
+                    <div class="sec-header">
+                        <h1>商家服务</h1>
+                        <span>更多</span>
+                    </div>
+                    <div class="sec-body">
+                        <a href="">手机电脑</a>
+                        <a href="">家用电器</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="banner">
+            <!--<img src="../public/imgs/index/banner.png" alt="">-->
+
+            <div ng-controller="CarouselDemoCtrl" class="banner-firstDiv">
+                    <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                        <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                            <img ng-src="{{slide.image}}" style="width: 100%;height: 100%;">
+                        </uib-slide>
+                    </uib-carousel>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="bor">
+                <h1>发布信息</h1>
+               <span>便捷发布，快速达成</span>
+            </div>
+            <div class=" bor">
+                <h1>赚取美刀</h1>
+                <span>分享信息，赚取美刀</span>
+            </div>
+            <div class="dl">
+                <div class="df-left">
+                    <img src="../public/imgs/index/home_phome_l.png" alt="">
+                </div>
+                <div class="df-right">
+                    <h1>简购客户端</h1>
+                    <span>华侨生活的百宝箱</span>
+                    <button>免费下载</button>
+                    <div>扫码</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--顶部导航结束-->
+
+
+    <!--中间内容开始-->
+    <div id="detail">
+        <!--回到顶部开始-->
+        <div id="toTop">
+            <div class="toTop-up"></div>
+            <div class="toTop-down">
+                <div class="toTop-down-erweima"></div>
+            </div>
+        </div>
+        <!--回到顶部结束-->
+
+        <!--闲置二手模块开始-->
+        <div class="section">
+            <div class="section-header">
+                <h1>闲置二手</h1>
+                <div class="section-nav">
+                    <a href="">手机电脑</a>
+                    <a href="">家用电器</a>
+                    <a href="">母婴儿童</a>
+                    <a href="">美颜护肤</a>
+                    <a href="">服装鞋帽</a>
+                    <a href="">家具家私</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp">
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/used/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/used/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/used/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/used/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+        <!--闲置二手模块结束-->
+
+
+        <!--新旧车辆模块开始-->
+        <div class="section">
+            <div class="section-header car_header">
+                <h1>新旧车辆</h1>
+                <div class="section-nav">
+                    <a href="">大众Volkswagen</a>
+                    <a href="">奔驰 Mecedes Benze</a>
+                    <a href="">丰田 Toyota</a>
+                    <a href="">大众Volkswagen</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp" style=" border: none;">
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/car/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/car/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/car/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/car/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <!--新旧车辆模块结束-->
+
+
+        <!--房屋租赁开始-->
+        <div class="section">
+            <div class="section-header car_header">
+                <h1>房屋租赁</h1>
+                <div class="section-nav">
+                    <a href="">整租</a>
+                    <a href="">日租</a>
+                    <a href="">单间</a>
+                    <a href="">办公</a>
+                    <a href="">车位</a>
+                    <a href="">其他</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp" style=" border: none;">
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/house/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/house/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/house/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+                <a href="" class="content-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/house/list.png" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
+                        <h2>$140</h2>
+                        <h4>NY 纽约 皇后区</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--房屋租赁结束-->
+
+
+        <!--工作招聘开始-->
+        <div class="section">
+            <div class="section-header job_header">
+                <h1>工作招聘</h1>
+                <div class="section-nav">
+                    <a href="">销售</a>
+                    <a href="">服务员</a>
+                    <a href="">会计</a>
+                    <a href="">律师</a>
+                    <a href="">司机</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp" style="border-top: none">
+                <a href="" class="job">
+                    <span>[纽约 布鲁克林]</span>
+                    <h2>富士康招聘中国技术人员</h2>
+                    <h5>05-25</h5>
+                </a>
+                <a href="" class="job">
+                    <span>[纽约 布鲁克林]</span>
+                    <h2>富士康招聘中国技术人员</h2>
+                    <h5>05-25</h5>
+                </a>
+                <a href="" class="job">
+                    <span>[纽约 布鲁克林]</span>
+                    <h2>富士康招聘中国技术人员</h2>
+                    <h5>05-25</h5>
+                </a>
+                <a href="" class="job">
+                    <span>[纽约 布鲁克林]</span>
+                    <h2>富士康招聘中国技术人员</h2>
+                    <h5>05-25</h5>
+                </a>
+                <a href="" class="job">
+                    <span>[纽约 布鲁克林]</span>
+                    <h2>富士康招聘中国技术人员</h2>
+                    <h5>05-25</h5>
+                </a>
+                <a href="" class="job">
+                    <span>[纽约 布鲁克林]</span>
+                    <h2>富士康招聘中国技术人员</h2>
+                    <h5>05-25</h5>
+                </a>
+            </div>
+        </div>
+        <!--工作招聘结束-->
+
+
+        <!--商家服务开始-->
+        <div class="section">
+            <div class="section-header service_header">
+                <h1>商家服务</h1>
+                <div class="section-nav">
+                    <a href="">律师法务</a>
+                    <a href="">搬家服务</a>
+                    <a href="">家政保姆</a>
+                    <a href="">代缴罚单</a>
+                    <a href="">洗车服务</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp" style=" border: none;">
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/service/list.png" alt="">
+                    </div>
+                    <div class="text-box service-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="service-info">
+                            <ul>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                            </ul>
+                            <span>5.0分</span>
+                            <span>评论 100 条</span>
+                        </div>
+                        <div class="service-status">
+                            <span>每周美食</span>
+                            <div class="st">营业中</div>
+                        </div>
+                        <div class="service-tags">
+                            <span class="s-share">分享</span>
+                            <span class="s-game">游戏</span>
+                            <span class="s-benifit">优惠</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/service/list.png" alt="">
+                    </div>
+                    <div class="text-box service-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="service-info">
+                            <ul>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                            </ul>
+                            <span>5.0分</span>
+                            <span>评论 100 条</span>
+                        </div>
+                        <div class="service-status">
+                            <span>每周美食</span>
+                            <div class="st">营业中</div>
+                        </div>
+
+                        <div class="service-tags">
+                            <span class="s-share">分享</span>
+                            <span class="s-game">游戏</span>
+                            <span class="s-benifit">优惠</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/service/list.png" alt="">
+                    </div>
+                    <div class="text-box service-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="service-info">
+                            <ul>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                            </ul>
+                            <span>5.0分</span>
+                            <span>评论 100 条</span>
+                        </div>
+                        <div class="service-status">
+                            <span>每周美食</span>
+                            <div class="st">营业中</div>
+                        </div>
+
+                        <div class="service-tags">
+                            <span class="s-share">分享</span>
+                            <span class="s-game">游戏</span>
+                            <span class="s-benifit">优惠</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/service/list.png" alt="">
+                    </div>
+                    <div class="text-box service-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="service-info">
+                            <ul>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                            </ul>
+                            <span>5.0分</span>
+                            <span>评论 100 条</span>
+                        </div>
+                        <div class="service-status">
+                            <span>每周美食</span>
+                            <div class="st">营业中</div>
+                        </div>
+
+                        <div class="service-tags">
+                            <span class="s-share">分享</span>
+                            <span class="s-game">游戏</span>
+                            <span class="s-benifit">优惠</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--商家服务结束-->
+
+        <!--美食餐饮开始-->
+        <div class="section">
+            <div class="section-header food_header">
+                <h1>美食餐饮</h1>
+                <div class="section-nav">
+                    <a href="">中国美食</a>
+                    <a href="">西式快餐</a>
+                    <a href="">美洲美食</a>
+                    <a href="">面包西点</a>
+                    <a href="">休闲餐饮</a>
+                    <a href="">地中海美食</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp" style=" border: none;">
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/food/list-a.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>美洲美味  美味风味</h3>
+                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/food/list-b.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+
+                        <div class="food-icon">
+                            <h3>美洲美味  美味风味</h3>
+                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/food/list-c.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+
+                        <div class="food-icon">
+                            <h3>美洲美味  美味风味</h3>
+                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/food/list-d.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+
+                        <div class="food-icon">
+                            <h3>美洲美味  美味风味</h3>
+                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--美食餐饮结束-->
+
+        <!--周边景点开始-->
+        <div class="section">
+            <div class="section-header jour_header">
+                <h1>周边景点</h1>
+                <div class="section-nav">
+                    <a href="">纽约市</a>
+                    <a href="">洛杉矶</a>
+                    <a href="">旧金山</a>
+                    <a href="">芝加哥</a>
+                    <a href="">华盛顿DC</a>
+                    <a href="">西雅图</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp">
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/jour/list-a.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>游玩时长： 1-2个小时</h3>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/jour/list-b.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>游玩时长： 1-2个小时</h3>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/jour/list-c.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>游玩时长： 1-2个小时</h3>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/jour/list-d.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>游玩时长： 1-2个小时</h3>
+                        </div>
+                        <div class="food-score">
+                            <h2>$15/人</h2>
+                            <div class="f-s">
+                                <ul>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                </ul>
+                                <span>5.0分</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--周边景点结束-->
+
+        <!--优惠折扣开始-->
+        <div class="section">
+            <div class="section-header benifit_header">
+                <h1>优惠折扣</h1>
+                <div class="section-nav">
+                    <a href="">美食</a>
+                    <a href="">购物</a>
+                    <a href="">景点</a>
+                    <a href="">酒店</a>
+                    <a href="">服务</a>
+                    <a href="">娱乐</a>
+                    <a href="">全部</a>
+                </div>
+            </div>
+            <div class="warp">
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-a.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-b.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-c.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-d.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-a.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-b.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-c.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="content-list service-list">
+                    <div class="img-box">
+                        <img src="../public/imgs/benifit/list-d.png" alt="">
+                    </div>
+                    <div class="text-box service-box food-box">
+                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <div class="food-icon">
+                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                        </div>
+                        <div class="food-score">
+                            <div class="service-tags">
+                                <span class="s-t">餐饮</span>
+                                <span class="s-game">游戏</span>
+                                <span class="s-share">夺金</span>
+                            </div>
+
+                            <div class="f-s">
+                                <span>浏览量：33</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--优惠折扣结束-->
+
+
+        <div class="section">
+            <!--热点新闻开始-->
+            <div class="section hot">
+                <div class="section-header hot_header">
+                    <h1>热点新闻</h1>
+                    <div class="section-nav">
+                        <a href="">全部</a>
+                    </div>
+                </div>
+                <div class="warp hot-wrap">
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                </div>
+            </div>
+            <!--热点新闻结束-->
+
+            <!--圈子讨论开始-->
+            <div class="section circle">
+                <div class="section-header circle_header">
+                    <h1>圈子讨论</h1>
+                    <div class="section-nav">
+                        <a href="">全部</a>
+                    </div>
+                </div>
+                <div class="warp hot-wrap">
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                    <a href="" class="job hot-list">
+                        <span>[纽约 布鲁克林]</span>
+                        <h2>富士康招聘中国技术人员</h2>
+                        <h5>05-25</h5>
+                    </a>
+                </div>
+            </div>
+            <!--圈子讨论结束-->
+
+
+        </div>
+
+
+        <!--友情链接开始-->
+        <div class="section links">
+            <span>友情链接:</span>
+            <div class="link-wrap">
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+                <a href="">美国VOA</a>
+                <a href="">北美省钱快报</a>
+            </div>
+        </div>
+        <!--友情链接结束-->
+
+    </div>
+    <!--中间内容结束-->
+
+    <footer></footer>
+    <bottom></bottom>
+</div>
+
+
+<!--底部弹窗开始-->
+<div class="adv-btn"></div>
+<div class="adv">
+    <div class="hide-info">
+        <div class="hide-detail">
+            <div class="hide-detail-left">
+                <div>iphone</div>
+                <div>Android</div>
+                <div>Pad</div>
+            </div>
+            <div class="hide-detail-mid">
+                <div class="erweima">
+                    <img src="../public/imgs/index/erweima.png" alt="">
+                </div>
+            </div>
+            <div class="hide-detail-right">
+                <img src="../public/imgs/index/close.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部弹窗结束-->
+
+
+<!--点击发布弹窗开始-->
+<div id="mask"></div>
+<div id="release">
+    <div class="release-header">
+电脑功能暂时未开放，请下载手机客户端进行发布
+        <div class="release-close"></div>
+    </div>
+    <div class="release-body">
+        <div class="r-l"></div>
+        <div class="r-r">
+            <div class="r-r-img">
+                <img src="../public/imgs/index/release-tips.png" alt="">
+            </div>
+            <h1>北美华侨最大的生活服务平台</h1>
+            <h1>为您提供最优质的本地化生活服务</h1>
+            <div class="r-r-bottom">
+                <div class="r-r-bottom-left">
+                    <h1>免费短信下载</h1>
+                    <input type="text" class="phone" placeholder="输入手机号码">
+                    <div class="code">
+                        <div class="alpha"></div>
+                        <input type="text" placeholder="输入验证码" class="getCode">
+                    </div>
+                    <button class="getLink">发送下载链接</button>
+                </div>
+                <div class="r-r-bottom-right">
+                    <h1>扫描二维码下载</h1>
+                    <div  class="rr-erweima">
+                        <img src="../public/imgs/index/dnl_rqcode.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--点击发布弹窗结束-->
+
+</body>
+<script src="../public/js/basic.js"></script>
+<script src="../public/js/index.js"></script>
+</html>

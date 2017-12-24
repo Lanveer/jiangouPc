@@ -1,0 +1,33 @@
+<div id="nav">
+    <a href="" class="nav-first">全部
+        <span></span>
+        <div class="nav-list">
+            <ul>
+                <li ng-repeat="list in category" ng-click="change($index)">
+                    <a href="" >{{list.title}}
+                        <span class="nav-arrow"></span>
+                        <span ng-bind="list.child[1].title.length>4?list.child[1].title.substring(0,4)+'..':list.child[1].title">手机</span>
+                        <span ng-bind="list.child[2].title.length>4?list.child[2].title.substring(0,4)+'..':list.child[2].title">手机</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-detail">
+                <div class="sec-item sec-a" ng-repeat="navList in category">
+                    <div class="sec-header">
+                        <h1 ng-bind="navList.title"></h1>
+                        <span>更多</span>
+                    </div>
+                    <div class="sec-body">
+                        <a href="" ng-repeat="s_navList in navList.child" ng-bind="s_navList.title"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="../static/index.html">首页</a>
+    <a href="../static/food.html">美食</a>
+    <a href="../static/benifit.html">优惠</a>
+    <a href="../static/jour.html">景点</a>
+    <a href="../static/news.html">新闻</a>
+    <a href="../static/circle.html">圈子</a>
+</div>

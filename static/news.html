@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../public/css/basic.css">
+    <link rel="stylesheet" href="../public/css/news.css">
+    <link href="../public/lib/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="con" ng-controller="ListController">
+    <top></top>
+    <div id="search">
+        <div class="logo">
+            <img src="../public/imgs/basic/logo.png" alt="">
+        </div>
+
+        <div class="search-box">
+            <div class="key">
+                <span ng-bind="category[0].title"></span>
+                <div class="key-list">
+                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                </div>
+            </div>
+
+            <div class="search-input">
+                <span></span>
+                <input type="text" placeholder="请输入关键字进行搜索" ng-model="kwd" ng-blur="search(kwd)">
+                <div class="search-list" ng-if="searchListFlag">
+                    <a href="" ng-repeat="searchList in searchListData" ng-bind="searchList.title" ng-click="searchDetail(searchList.title)"></a>
+                </div>
+            </div>
+
+            <div class="search-btn" ng-click="searchResult(kwd)">
+                搜索
+            </div>
+        </div>
+    </div>
+
+    <!--顶部导航开始-->
+     <nav></nav>
+    <!--顶部导航结束-->
+
+    <!--面包屑导航开始-->
+    <div class="bread">
+        <ul>
+            <li><a href="">全部</a></li>
+            <li> > </li>
+            <li><a href="">新闻</a></li>
+        </ul>
+    </div>
+    <!--面包屑导航结束-->
+
+    <div id="detail">
+        <!--回到顶部开始-->
+        <div id="toTop">
+            <div class="toTop-up"></div>
+            <div class="toTop-down">
+                <div class="toTop-down-erweima"></div>
+            </div>
+        </div>
+        <!--回到顶部结束-->
+
+        <!--内容区域开始-->
+
+        <div class="content">
+            <div class="news">
+                <div class="news-nav" >
+                    <a href="" id="newsNav{{$index}}" ng-repeat="item in newsType" ng-bind="item.title" ng-click="newsNav(item.type_id,$index)">纽约</a>
+                </div>
+                <div class="news-tab">
+                    <h1 ng-if="havaData">暂时没有相关的新闻数据</h1>
+                    <a href="" ng-repeat="item in listData">
+                        <div class="news-left">
+                            <img src="{{item.img}}" alt="">
+                        </div>
+                        <div class="news-right">
+                            <h1 ng-bind="item.title"></h1>
+                            <p ng-bind="item.content.length>300?item.content.substring(0,280)+'...':item.content"></p>
+                            <span class="news-date" ng-bind="item.create_time"></span>
+                            <span class="news-browse" ng-bind="item.browse"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="recommend">
+                <h1>精选推荐</h1>
+                <a href="">
+                    <div class="r-left">
+                        <img src="../public/imgs/news/r-list.png" alt="">
+                    </div>
+                    <div class="r-right">
+                        <h1>斯里兰卡暴雨导致了100人逃难</h1>
+                        <span class="r-date">2017-05-23</span>
+                    </div>
+                </a>
+                <div class="news-download">
+                    <img src="../public/imgs/news/download.png" alt="">
+                </div>
+            </div>
+
+
+            <!--分页开始-->
+            <div class="page-wrap" style="width: 880px;float: left;" ng-show="!havaData">
+                <div class="pagenition">
+                    <uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="尾页" boundary-links="true" boundary-link-numbers="true" items-per-page="20" ng-change="pageChanged()"></uib-pagination>
+                </div>
+            </div>
+            <!--分页结束-->
+        </div>
+        <!--内容区域结束-->
+    </div>
+
+    <footer></footer>
+    <bottom></bottom>
+</div>
+</body>
+<script src="../public/lib/jquery-1.7.2.js"></script>
+<script src="../public/lib/angular.min.js"></script>
+<script src="../public/lib/ui-bootstrap.min.js"></script>
+<script src="../public/lib/ui-bootstrap-tpls.min.js"></script>
+<script src="../public/js/basic.js"></script>
+<script src="../public/js/news.js"></script>
+</html>

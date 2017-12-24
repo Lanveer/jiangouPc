@@ -1,0 +1,762 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'E:\\softInstall\\node\\node.exe',
+1 verbose cli   'C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'bootstrap',
+1 verbose cli   '--save' ]
+2 info using npm@2.15.12
+3 info using node@v6.5.0
+4 verbose install initial load of E:\project\JGweb\JGweb\package.json
+5 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\body-parser\package.json
+6 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\cookie-parser\package.json
+7 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\debug\package.json
+8 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\express\package.json
+9 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\jade\package.json
+10 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\morgan\package.json
+11 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\mysql\package.json
+12 verbose installManyTop reading scoped package data from E:\project\JGweb\JGweb\node_modules\serve-favicon\package.json
+13 verbose readDependencies loading dependencies from E:\project\JGweb\JGweb\package.json
+14 silly cache add args [ 'bootstrap', null ]
+15 verbose cache add spec bootstrap
+16 silly cache add parsed spec Result {
+16 silly cache add   raw: 'bootstrap',
+16 silly cache add   scope: null,
+16 silly cache add   name: 'bootstrap',
+16 silly cache add   rawSpec: '',
+16 silly cache add   spec: 'latest',
+16 silly cache add   type: 'tag' }
+17 silly addNamed bootstrap@latest
+18 verbose addNamed "latest" is being treated as a dist-tag for bootstrap
+19 info addNameTag [ 'bootstrap', 'latest' ]
+20 silly mapToRegistry name bootstrap
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry data Result {
+23 silly mapToRegistry   raw: 'bootstrap',
+23 silly mapToRegistry   scope: null,
+23 silly mapToRegistry   name: 'bootstrap',
+23 silly mapToRegistry   rawSpec: '',
+23 silly mapToRegistry   spec: 'latest',
+23 silly mapToRegistry   type: 'tag' }
+24 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+25 verbose addNameTag registry:https://registry.npmjs.org/bootstrap not in flight; fetching
+26 verbose request uri https://registry.npmjs.org/bootstrap
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 16:09:53
+29 verbose request id 8409e1680ff688cd
+30 verbose etag W/"59bbd2aa-e30d"
+31 verbose lastModified Fri, 15 Sep 2017 13:16:26 GMT
+32 http request GET https://registry.npmjs.org/bootstrap
+33 http 304 https://registry.npmjs.org/bootstrap
+34 verbose headers { date: 'Mon, 18 Sep 2017 08:09:54 GMT',
+34 verbose headers   via: '1.1 varnish',
+34 verbose headers   'cache-control': 'max-age=300',
+34 verbose headers   etag: 'W/"59bbd2aa-e30d"',
+34 verbose headers   age: '242',
+34 verbose headers   connection: 'keep-alive',
+34 verbose headers   'x-served-by': 'cache-nrt6130-NRT',
+34 verbose headers   'x-cache': 'HIT',
+34 verbose headers   'x-cache-hits': '2',
+34 verbose headers   'x-timer': 'S1505722195.980564,VS0,VE0',
+34 verbose headers   vary: 'Accept-Encoding, Accept' }
+35 silly get cb [ 304,
+35 silly get   { date: 'Mon, 18 Sep 2017 08:09:54 GMT',
+35 silly get     via: '1.1 varnish',
+35 silly get     'cache-control': 'max-age=300',
+35 silly get     etag: 'W/"59bbd2aa-e30d"',
+35 silly get     age: '242',
+35 silly get     connection: 'keep-alive',
+35 silly get     'x-served-by': 'cache-nrt6130-NRT',
+35 silly get     'x-cache': 'HIT',
+35 silly get     'x-cache-hits': '2',
+35 silly get     'x-timer': 'S1505722195.980564,VS0,VE0',
+35 silly get     vary: 'Accept-Encoding, Accept' } ]
+36 verbose etag https://registry.npmjs.org/bootstrap from cache
+37 verbose get saving bootstrap to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\bootstrap\.cache.json
+38 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+39 silly addNameTag next cb for bootstrap with tag latest
+40 silly addNamed bootstrap@3.3.7
+41 verbose addNamed "3.3.7" is a plain semver version for bootstrap
+42 silly cache afterAdd bootstrap@3.3.7
+43 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\bootstrap\3.3.7\package\package.json not in flight; writing
+44 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+45 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\bootstrap\3.3.7\package\package.json written
+46 silly install resolved [ { name: 'bootstrap',
+46 silly install resolved     description: 'The most popular front-end framework for developing responsive, mobile first projects on the web.',
+46 silly install resolved     version: '3.3.7',
+46 silly install resolved     keywords:
+46 silly install resolved      [ 'css',
+46 silly install resolved        'less',
+46 silly install resolved        'mobile-first',
+46 silly install resolved        'responsive',
+46 silly install resolved        'front-end',
+46 silly install resolved        'framework',
+46 silly install resolved        'web' ],
+46 silly install resolved     homepage: 'http://getbootstrap.com',
+46 silly install resolved     author: { name: 'Twitter, Inc.' },
+46 silly install resolved     scripts:
+46 silly install resolved      { 'change-version': 'node grunt/change-version.js',
+46 silly install resolved        'update-shrinkwrap': 'npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json',
+46 silly install resolved        test: 'grunt test' },
+46 silly install resolved     style: 'dist/css/bootstrap.css',
+46 silly install resolved     less: 'less/bootstrap.less',
+46 silly install resolved     main: './dist/js/npm',
+46 silly install resolved     repository:
+46 silly install resolved      { type: 'git',
+46 silly install resolved        url: 'git+https://github.com/twbs/bootstrap.git' },
+46 silly install resolved     bugs: { url: 'https://github.com/twbs/bootstrap/issues' },
+46 silly install resolved     license: 'MIT',
+46 silly install resolved     devDependencies:
+46 silly install resolved      { btoa: '~1.1.2',
+46 silly install resolved        glob: '~7.0.3',
+46 silly install resolved        grunt: '~1.0.1',
+46 silly install resolved        'grunt-autoprefixer': '~3.0.4',
+46 silly install resolved        'grunt-contrib-clean': '~1.0.0',
+46 silly install resolved        'grunt-contrib-compress': '~1.3.0',
+46 silly install resolved        'grunt-contrib-concat': '~1.0.0',
+46 silly install resolved        'grunt-contrib-connect': '~1.0.0',
+46 silly install resolved        'grunt-contrib-copy': '~1.0.0',
+46 silly install resolved        'grunt-contrib-csslint': '~1.0.0',
+46 silly install resolved        'grunt-contrib-cssmin': '~1.0.0',
+46 silly install resolved        'grunt-contrib-htmlmin': '~1.5.0',
+46 silly install resolved        'grunt-contrib-jshint': '~1.0.0',
+46 silly install resolved        'grunt-contrib-less': '~1.3.0',
+46 silly install resolved        'grunt-contrib-pug': '~1.0.0',
+46 silly install resolved        'grunt-contrib-qunit': '~0.7.0',
+46 silly install resolved        'grunt-contrib-uglify': '~1.0.0',
+46 silly install resolved        'grunt-contrib-watch': '~1.0.0',
+46 silly install resolved        'grunt-csscomb': '~3.1.0',
+46 silly install resolved        'grunt-exec': '~1.0.0',
+46 silly install resolved        'grunt-html': '~8.0.1',
+46 silly install resolved        'grunt-jekyll': '~0.4.4',
+46 silly install resolved        'grunt-jscs': '~3.0.1',
+46 silly install resolved        'grunt-saucelabs': '~9.0.0',
+46 silly install resolved        'load-grunt-tasks': '~3.5.0',
+46 silly install resolved        'markdown-it': '^7.0.0',
+46 silly install resolved        shelljs: '^0.7.0',
+46 silly install resolved        shx: '^0.1.2',
+46 silly install resolved        'time-grunt': '^1.3.0' },
+46 silly install resolved     engines: { node: '>=0.10.1' },
+46 silly install resolved     files:
+46 silly install resolved      [ 'dist',
+46 silly install resolved        'fonts',
+46 silly install resolved        'grunt',
+46 silly install resolved        'js/*.js',
+46 silly install resolved        'less/**/*.less',
+46 silly install resolved        'Gruntfile.js',
+46 silly install resolved        'LICENSE' ],
+46 silly install resolved     jspm: { main: 'js/bootstrap', shim: [Object], files: [Object] },
+46 silly install resolved     gitHead: '0b9c4a4007c44201dce9a6cc1a38407005c26c86',
+46 silly install resolved     _id: 'bootstrap@3.3.7',
+46 silly install resolved     _shasum: '5a389394549f23330875a3b150656574f8a9eb71',
+46 silly install resolved     _from: 'bootstrap@latest',
+46 silly install resolved     _npmVersion: '2.15.8',
+46 silly install resolved     _nodeVersion: '4.4.7',
+46 silly install resolved     _npmUser: { name: 'twbs', email: 'getbootstrap@gmail.com' },
+46 silly install resolved     dist:
+46 silly install resolved      { shasum: '5a389394549f23330875a3b150656574f8a9eb71',
+46 silly install resolved        tarball: 'https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz' },
+46 silly install resolved     maintainers: [ [Object] ],
+46 silly install resolved     _npmOperationalInternal:
+46 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+46 silly install resolved        tmp: 'tmp/bootstrap-3.3.7.tgz_1469462979154_0.42421583621762693' },
+46 silly install resolved     directories: {},
+46 silly install resolved     _resolved: 'https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz',
+46 silly install resolved     readme: 'ERROR: No README data found!' } ]
+47 info install bootstrap@3.3.7 into E:\project\JGweb\JGweb
+48 info installOne bootstrap@3.3.7
+49 verbose installOne of bootstrap to E:\project\JGweb\JGweb not in flight; installing
+50 verbose correctMkdir C:\Users\Administrator\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+51 verbose lock using C:\Users\Administrator\AppData\Roaming\npm-cache\_locks\bootstrap-63de5d1c5048aec4.lock for E:\project\JGweb\JGweb\node_modules\bootstrap
+52 silly install write writing bootstrap 3.3.7 to E:\project\JGweb\JGweb\node_modules\bootstrap
+53 verbose unbuild node_modules\bootstrap
+54 silly gentlyRm E:\project\JGweb\JGweb\node_modules\bootstrap is being purged from base E:\project\JGweb\JGweb
+55 verbose gentlyRm don't care about contents; nuking E:\project\JGweb\JGweb\node_modules\bootstrap
+56 verbose tar unpack C:\Users\Administrator\AppData\Roaming\npm-cache\bootstrap\3.3.7\package.tgz
+57 verbose tar unpacking to E:\project\JGweb\JGweb\node_modules\bootstrap
+58 silly gentlyRm E:\project\JGweb\JGweb\node_modules\bootstrap is being purged
+59 verbose gentlyRm don't care about contents; nuking E:\project\JGweb\JGweb\node_modules\bootstrap
+60 silly gunzTarPerm modes [ '777', '666' ]
+61 silly gunzTarPerm extractEntry package.json
+62 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+63 silly gunzTarPerm extractEntry README.md
+64 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+65 silly gunzTarPerm extractEntry LICENSE
+66 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+67 silly gunzTarPerm extractEntry Gruntfile.js
+68 silly gunzTarPerm modified mode [ 'Gruntfile.js', 420, 438 ]
+69 silly gunzTarPerm extractEntry CHANGELOG.md
+70 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+71 silly gunzTarPerm extractEntry dist/css/bootstrap-theme.css
+72 silly gunzTarPerm modified mode [ 'dist/css/bootstrap-theme.css', 420, 438 ]
+73 silly gunzTarPerm extractEntry dist/css/bootstrap-theme.css.map
+74 silly gunzTarPerm modified mode [ 'dist/css/bootstrap-theme.css.map', 420, 438 ]
+75 silly gunzTarPerm extractEntry dist/css/bootstrap-theme.min.css
+76 silly gunzTarPerm modified mode [ 'dist/css/bootstrap-theme.min.css', 420, 438 ]
+77 silly gunzTarPerm extractEntry dist/css/bootstrap-theme.min.css.map
+78 silly gunzTarPerm modified mode [ 'dist/css/bootstrap-theme.min.css.map', 420, 438 ]
+79 silly gunzTarPerm extractEntry dist/css/bootstrap.css
+80 silly gunzTarPerm modified mode [ 'dist/css/bootstrap.css', 420, 438 ]
+81 silly gunzTarPerm extractEntry dist/css/bootstrap.css.map
+82 silly gunzTarPerm modified mode [ 'dist/css/bootstrap.css.map', 420, 438 ]
+83 silly gunzTarPerm extractEntry dist/css/bootstrap.min.css
+84 silly gunzTarPerm modified mode [ 'dist/css/bootstrap.min.css', 420, 438 ]
+85 silly gunzTarPerm extractEntry dist/css/bootstrap.min.css.map
+86 silly gunzTarPerm modified mode [ 'dist/css/bootstrap.min.css.map', 420, 438 ]
+87 silly gunzTarPerm extractEntry dist/fonts/glyphicons-halflings-regular.eot
+88 silly gunzTarPerm modified mode [ 'dist/fonts/glyphicons-halflings-regular.eot', 420, 438 ]
+89 silly gunzTarPerm extractEntry dist/fonts/glyphicons-halflings-regular.svg
+90 silly gunzTarPerm modified mode [ 'dist/fonts/glyphicons-halflings-regular.svg', 420, 438 ]
+91 silly gunzTarPerm extractEntry dist/fonts/glyphicons-halflings-regular.ttf
+92 silly gunzTarPerm modified mode [ 'dist/fonts/glyphicons-halflings-regular.ttf', 420, 438 ]
+93 silly gunzTarPerm extractEntry dist/fonts/glyphicons-halflings-regular.woff
+94 silly gunzTarPerm modified mode [ 'dist/fonts/glyphicons-halflings-regular.woff', 420, 438 ]
+95 silly gunzTarPerm extractEntry dist/fonts/glyphicons-halflings-regular.woff2
+96 silly gunzTarPerm modified mode [ 'dist/fonts/glyphicons-halflings-regular.woff2', 420, 438 ]
+97 silly gunzTarPerm extractEntry dist/js/bootstrap.js
+98 silly gunzTarPerm modified mode [ 'dist/js/bootstrap.js', 420, 438 ]
+99 silly gunzTarPerm extractEntry dist/js/bootstrap.min.js
+100 silly gunzTarPerm modified mode [ 'dist/js/bootstrap.min.js', 420, 438 ]
+101 silly gunzTarPerm extractEntry dist/js/npm.js
+102 silly gunzTarPerm modified mode [ 'dist/js/npm.js', 420, 438 ]
+103 silly gunzTarPerm extractEntry fonts/glyphicons-halflings-regular.eot
+104 silly gunzTarPerm modified mode [ 'fonts/glyphicons-halflings-regular.eot', 420, 438 ]
+105 silly gunzTarPerm extractEntry fonts/glyphicons-halflings-regular.svg
+106 silly gunzTarPerm modified mode [ 'fonts/glyphicons-halflings-regular.svg', 420, 438 ]
+107 silly gunzTarPerm extractEntry fonts/glyphicons-halflings-regular.ttf
+108 silly gunzTarPerm modified mode [ 'fonts/glyphicons-halflings-regular.ttf', 420, 438 ]
+109 silly gunzTarPerm extractEntry fonts/glyphicons-halflings-regular.woff
+110 silly gunzTarPerm modified mode [ 'fonts/glyphicons-halflings-regular.woff', 420, 438 ]
+111 silly gunzTarPerm extractEntry fonts/glyphicons-halflings-regular.woff2
+112 silly gunzTarPerm modified mode [ 'fonts/glyphicons-halflings-regular.woff2', 420, 438 ]
+113 silly gunzTarPerm extractEntry grunt/bs-commonjs-generator.js
+114 silly gunzTarPerm modified mode [ 'grunt/bs-commonjs-generator.js', 420, 438 ]
+115 silly gunzTarPerm extractEntry grunt/bs-glyphicons-data-generator.js
+116 silly gunzTarPerm modified mode [ 'grunt/bs-glyphicons-data-generator.js', 420, 438 ]
+117 silly gunzTarPerm extractEntry grunt/bs-lessdoc-parser.js
+118 silly gunzTarPerm modified mode [ 'grunt/bs-lessdoc-parser.js', 420, 438 ]
+119 silly gunzTarPerm extractEntry grunt/bs-raw-files-generator.js
+120 silly gunzTarPerm modified mode [ 'grunt/bs-raw-files-generator.js', 420, 438 ]
+121 silly gunzTarPerm extractEntry grunt/change-version.js
+122 silly gunzTarPerm modified mode [ 'grunt/change-version.js', 493, 511 ]
+123 silly gunzTarPerm extractEntry grunt/.jshintrc
+124 silly gunzTarPerm modified mode [ 'grunt/.jshintrc', 420, 438 ]
+125 silly gunzTarPerm extractEntry grunt/configBridge.json
+126 silly gunzTarPerm modified mode [ 'grunt/configBridge.json', 420, 438 ]
+127 silly gunzTarPerm extractEntry grunt/npm-shrinkwrap.json
+128 silly gunzTarPerm modified mode [ 'grunt/npm-shrinkwrap.json', 420, 438 ]
+129 silly gunzTarPerm extractEntry grunt/sauce_browsers.yml
+130 silly gunzTarPerm modified mode [ 'grunt/sauce_browsers.yml', 420, 438 ]
+131 silly gunzTarPerm extractEntry js/affix.js
+132 silly gunzTarPerm modified mode [ 'js/affix.js', 420, 438 ]
+133 silly gunzTarPerm extractEntry js/button.js
+134 silly gunzTarPerm modified mode [ 'js/button.js', 420, 438 ]
+135 silly gunzTarPerm extractEntry js/carousel.js
+136 silly gunzTarPerm modified mode [ 'js/carousel.js', 420, 438 ]
+137 silly gunzTarPerm extractEntry js/collapse.js
+138 silly gunzTarPerm modified mode [ 'js/collapse.js', 420, 438 ]
+139 silly gunzTarPerm extractEntry js/dropdown.js
+140 silly gunzTarPerm modified mode [ 'js/dropdown.js', 420, 438 ]
+141 silly gunzTarPerm extractEntry js/alert.js
+142 silly gunzTarPerm modified mode [ 'js/alert.js', 420, 438 ]
+143 silly gunzTarPerm extractEntry js/popover.js
+144 silly gunzTarPerm modified mode [ 'js/popover.js', 420, 438 ]
+145 silly gunzTarPerm extractEntry js/scrollspy.js
+146 silly gunzTarPerm modified mode [ 'js/scrollspy.js', 420, 438 ]
+147 silly gunzTarPerm extractEntry js/tab.js
+148 silly gunzTarPerm modified mode [ 'js/tab.js', 420, 438 ]
+149 silly gunzTarPerm extractEntry js/tooltip.js
+150 silly gunzTarPerm modified mode [ 'js/tooltip.js', 420, 438 ]
+151 silly gunzTarPerm extractEntry js/transition.js
+152 silly gunzTarPerm modified mode [ 'js/transition.js', 420, 438 ]
+153 silly gunzTarPerm extractEntry js/modal.js
+154 silly gunzTarPerm modified mode [ 'js/modal.js', 420, 438 ]
+155 silly gunzTarPerm extractEntry less/mixins.less
+156 silly gunzTarPerm modified mode [ 'less/mixins.less', 420, 438 ]
+157 silly gunzTarPerm extractEntry less/alerts.less
+158 silly gunzTarPerm modified mode [ 'less/alerts.less', 420, 438 ]
+159 silly gunzTarPerm extractEntry less/badges.less
+160 silly gunzTarPerm modified mode [ 'less/badges.less', 420, 438 ]
+161 silly gunzTarPerm extractEntry less/bootstrap.less
+162 silly gunzTarPerm modified mode [ 'less/bootstrap.less', 420, 438 ]
+163 silly gunzTarPerm extractEntry less/breadcrumbs.less
+164 silly gunzTarPerm modified mode [ 'less/breadcrumbs.less', 420, 438 ]
+165 silly gunzTarPerm extractEntry less/button-groups.less
+166 silly gunzTarPerm modified mode [ 'less/button-groups.less', 420, 438 ]
+167 silly gunzTarPerm extractEntry less/buttons.less
+168 silly gunzTarPerm modified mode [ 'less/buttons.less', 420, 438 ]
+169 silly gunzTarPerm extractEntry less/carousel.less
+170 silly gunzTarPerm modified mode [ 'less/carousel.less', 420, 438 ]
+171 silly gunzTarPerm extractEntry less/close.less
+172 silly gunzTarPerm modified mode [ 'less/close.less', 420, 438 ]
+173 silly gunzTarPerm extractEntry less/code.less
+174 silly gunzTarPerm modified mode [ 'less/code.less', 420, 438 ]
+175 silly gunzTarPerm extractEntry less/component-animations.less
+176 silly gunzTarPerm modified mode [ 'less/component-animations.less', 420, 438 ]
+177 silly gunzTarPerm extractEntry less/dropdowns.less
+178 silly gunzTarPerm modified mode [ 'less/dropdowns.less', 420, 438 ]
+179 silly gunzTarPerm extractEntry less/forms.less
+180 silly gunzTarPerm modified mode [ 'less/forms.less', 420, 438 ]
+181 silly gunzTarPerm extractEntry less/glyphicons.less
+182 silly gunzTarPerm modified mode [ 'less/glyphicons.less', 420, 438 ]
+183 silly gunzTarPerm extractEntry less/grid.less
+184 silly gunzTarPerm modified mode [ 'less/grid.less', 420, 438 ]
+185 silly gunzTarPerm extractEntry less/input-groups.less
+186 silly gunzTarPerm modified mode [ 'less/input-groups.less', 420, 438 ]
+187 silly gunzTarPerm extractEntry less/jumbotron.less
+188 silly gunzTarPerm modified mode [ 'less/jumbotron.less', 420, 438 ]
+189 silly gunzTarPerm extractEntry less/labels.less
+190 silly gunzTarPerm modified mode [ 'less/labels.less', 420, 438 ]
+191 silly gunzTarPerm extractEntry less/list-group.less
+192 silly gunzTarPerm modified mode [ 'less/list-group.less', 420, 438 ]
+193 silly gunzTarPerm extractEntry less/media.less
+194 silly gunzTarPerm modified mode [ 'less/media.less', 420, 438 ]
+195 silly gunzTarPerm extractEntry less/mixins/nav-vertical-align.less
+196 silly gunzTarPerm modified mode [ 'less/mixins/nav-vertical-align.less', 420, 438 ]
+197 silly gunzTarPerm extractEntry less/mixins/alerts.less
+198 silly gunzTarPerm modified mode [ 'less/mixins/alerts.less', 420, 438 ]
+199 silly gunzTarPerm extractEntry less/mixins/border-radius.less
+200 silly gunzTarPerm modified mode [ 'less/mixins/border-radius.less', 420, 438 ]
+201 silly gunzTarPerm extractEntry less/mixins/buttons.less
+202 silly gunzTarPerm modified mode [ 'less/mixins/buttons.less', 420, 438 ]
+203 silly gunzTarPerm extractEntry less/mixins/center-block.less
+204 silly gunzTarPerm modified mode [ 'less/mixins/center-block.less', 420, 438 ]
+205 silly gunzTarPerm extractEntry less/mixins/clearfix.less
+206 silly gunzTarPerm modified mode [ 'less/mixins/clearfix.less', 420, 438 ]
+207 silly gunzTarPerm extractEntry less/mixins/forms.less
+208 silly gunzTarPerm modified mode [ 'less/mixins/forms.less', 420, 438 ]
+209 silly gunzTarPerm extractEntry less/mixins/gradients.less
+210 silly gunzTarPerm modified mode [ 'less/mixins/gradients.less', 420, 438 ]
+211 silly gunzTarPerm extractEntry less/mixins/grid-framework.less
+212 silly gunzTarPerm modified mode [ 'less/mixins/grid-framework.less', 420, 438 ]
+213 silly gunzTarPerm extractEntry less/mixins/grid.less
+214 silly gunzTarPerm modified mode [ 'less/mixins/grid.less', 420, 438 ]
+215 silly gunzTarPerm extractEntry less/mixins/hide-text.less
+216 silly gunzTarPerm modified mode [ 'less/mixins/hide-text.less', 420, 438 ]
+217 silly gunzTarPerm extractEntry less/mixins/image.less
+218 silly gunzTarPerm modified mode [ 'less/mixins/image.less', 420, 438 ]
+219 silly gunzTarPerm extractEntry less/mixins/labels.less
+220 silly gunzTarPerm modified mode [ 'less/mixins/labels.less', 420, 438 ]
+221 silly gunzTarPerm extractEntry less/mixins/list-group.less
+222 silly gunzTarPerm modified mode [ 'less/mixins/list-group.less', 420, 438 ]
+223 silly gunzTarPerm extractEntry less/mixins/nav-divider.less
+224 silly gunzTarPerm modified mode [ 'less/mixins/nav-divider.less', 420, 438 ]
+225 silly gunzTarPerm extractEntry less/mixins/background-variant.less
+226 silly gunzTarPerm modified mode [ 'less/mixins/background-variant.less', 420, 438 ]
+227 silly gunzTarPerm extractEntry less/mixins/opacity.less
+228 silly gunzTarPerm modified mode [ 'less/mixins/opacity.less', 420, 438 ]
+229 silly gunzTarPerm extractEntry less/mixins/pagination.less
+230 silly gunzTarPerm modified mode [ 'less/mixins/pagination.less', 420, 438 ]
+231 silly gunzTarPerm extractEntry less/mixins/panels.less
+232 silly gunzTarPerm modified mode [ 'less/mixins/panels.less', 420, 438 ]
+233 silly gunzTarPerm extractEntry less/mixins/progress-bar.less
+234 silly gunzTarPerm modified mode [ 'less/mixins/progress-bar.less', 420, 438 ]
+235 silly gunzTarPerm extractEntry less/mixins/reset-filter.less
+236 silly gunzTarPerm modified mode [ 'less/mixins/reset-filter.less', 420, 438 ]
+237 silly gunzTarPerm extractEntry less/mixins/reset-text.less
+238 silly gunzTarPerm modified mode [ 'less/mixins/reset-text.less', 420, 438 ]
+239 silly gunzTarPerm extractEntry less/mixins/resize.less
+240 silly gunzTarPerm modified mode [ 'less/mixins/resize.less', 420, 438 ]
+241 silly gunzTarPerm extractEntry less/mixins/responsive-visibility.less
+242 silly gunzTarPerm modified mode [ 'less/mixins/responsive-visibility.less', 420, 438 ]
+243 silly gunzTarPerm extractEntry less/mixins/size.less
+244 silly gunzTarPerm modified mode [ 'less/mixins/size.less', 420, 438 ]
+245 silly gunzTarPerm extractEntry less/mixins/tab-focus.less
+246 silly gunzTarPerm modified mode [ 'less/mixins/tab-focus.less', 420, 438 ]
+247 silly gunzTarPerm extractEntry less/mixins/table-row.less
+248 silly gunzTarPerm modified mode [ 'less/mixins/table-row.less', 420, 438 ]
+249 silly gunzTarPerm extractEntry less/mixins/text-emphasis.less
+250 silly gunzTarPerm modified mode [ 'less/mixins/text-emphasis.less', 420, 438 ]
+251 silly gunzTarPerm extractEntry less/mixins/text-overflow.less
+252 silly gunzTarPerm modified mode [ 'less/mixins/text-overflow.less', 420, 438 ]
+253 silly gunzTarPerm extractEntry less/mixins/vendor-prefixes.less
+254 silly gunzTarPerm modified mode [ 'less/mixins/vendor-prefixes.less', 420, 438 ]
+255 silly gunzTarPerm extractEntry less/modals.less
+256 silly gunzTarPerm modified mode [ 'less/modals.less', 420, 438 ]
+257 silly gunzTarPerm extractEntry less/navbar.less
+258 silly gunzTarPerm modified mode [ 'less/navbar.less', 420, 438 ]
+259 silly gunzTarPerm extractEntry less/navs.less
+260 silly gunzTarPerm modified mode [ 'less/navs.less', 420, 438 ]
+261 silly gunzTarPerm extractEntry less/normalize.less
+262 silly gunzTarPerm modified mode [ 'less/normalize.less', 420, 438 ]
+263 silly gunzTarPerm extractEntry less/pager.less
+264 silly gunzTarPerm modified mode [ 'less/pager.less', 420, 438 ]
+265 silly gunzTarPerm extractEntry less/pagination.less
+266 silly gunzTarPerm modified mode [ 'less/pagination.less', 420, 438 ]
+267 silly gunzTarPerm extractEntry less/panels.less
+268 silly gunzTarPerm modified mode [ 'less/panels.less', 420, 438 ]
+269 silly gunzTarPerm extractEntry less/popovers.less
+270 silly gunzTarPerm modified mode [ 'less/popovers.less', 420, 438 ]
+271 silly gunzTarPerm extractEntry less/print.less
+272 silly gunzTarPerm modified mode [ 'less/print.less', 420, 438 ]
+273 silly gunzTarPerm extractEntry less/progress-bars.less
+274 silly gunzTarPerm modified mode [ 'less/progress-bars.less', 420, 438 ]
+275 silly gunzTarPerm extractEntry less/responsive-embed.less
+276 silly gunzTarPerm modified mode [ 'less/responsive-embed.less', 420, 438 ]
+277 silly gunzTarPerm extractEntry less/responsive-utilities.less
+278 silly gunzTarPerm modified mode [ 'less/responsive-utilities.less', 420, 438 ]
+279 silly gunzTarPerm extractEntry less/scaffolding.less
+280 silly gunzTarPerm modified mode [ 'less/scaffolding.less', 420, 438 ]
+281 silly gunzTarPerm extractEntry less/tables.less
+282 silly gunzTarPerm modified mode [ 'less/tables.less', 420, 438 ]
+283 silly gunzTarPerm extractEntry less/theme.less
+284 silly gunzTarPerm modified mode [ 'less/theme.less', 420, 438 ]
+285 silly gunzTarPerm extractEntry less/thumbnails.less
+286 silly gunzTarPerm modified mode [ 'less/thumbnails.less', 420, 438 ]
+287 silly gunzTarPerm extractEntry less/tooltip.less
+288 silly gunzTarPerm modified mode [ 'less/tooltip.less', 420, 438 ]
+289 silly gunzTarPerm extractEntry less/type.less
+290 silly gunzTarPerm modified mode [ 'less/type.less', 420, 438 ]
+291 silly gunzTarPerm extractEntry less/utilities.less
+292 silly gunzTarPerm modified mode [ 'less/utilities.less', 420, 438 ]
+293 silly gunzTarPerm extractEntry less/variables.less
+294 silly gunzTarPerm modified mode [ 'less/variables.less', 420, 438 ]
+295 silly gunzTarPerm extractEntry less/wells.less
+296 silly gunzTarPerm modified mode [ 'less/wells.less', 420, 438 ]
+297 verbose write writing to E:\project\JGweb\JGweb\node_modules\bootstrap\package.json
+298 info preinstall bootstrap@3.3.7
+299 verbose readDependencies loading dependencies from E:\project\JGweb\JGweb\node_modules\bootstrap\package.json
+300 verbose readDependencies loading dependencies from E:\project\JGweb\JGweb\node_modules\bootstrap\package.json
+301 silly install resolved []
+302 verbose about to build E:\project\JGweb\JGweb\node_modules\bootstrap
+303 info build E:\project\JGweb\JGweb\node_modules\bootstrap
+304 info linkStuff bootstrap@3.3.7
+305 silly linkStuff bootstrap@3.3.7 has E:\project\JGweb\JGweb\node_modules as its parent node_modules
+306 verbose linkBins bootstrap@3.3.7
+307 verbose linkMans bootstrap@3.3.7
+308 verbose rebuildBundles bootstrap@3.3.7
+309 info install bootstrap@3.3.7
+310 info postinstall bootstrap@3.3.7
+311 verbose unlock done using C:\Users\Administrator\AppData\Roaming\npm-cache\_locks\bootstrap-63de5d1c5048aec4.lock for E:\project\JGweb\JGweb\node_modules\bootstrap
+312 verbose validateInstall loading E:\project\JGweb\JGweb\package.json for validation
+313 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\zuul requires debug@'2.1.0' but will load
+313 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+313 warn unmet dependency which is version 2.6.8
+314 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\zuul requires express@'3.4.8' but will load
+314 warn unmet dependency E:\project\JGweb\JGweb\node_modules\express,
+314 warn unmet dependency which is version 4.15.4
+315 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\coveralls requires js-yaml@'3.6.1' but will load
+315 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\js-yaml,
+315 warn unmet dependency which is version 3.10.0
+316 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\nyc requires glob@'^5.0.14' but will load
+316 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+316 warn unmet dependency which is version 6.0.4
+317 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-mocha-reporter requires glob@'^7.0.5' but will load
+317 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+317 warn unmet dependency which is version 6.0.4
+318 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\deeper\node_modules\tap requires glob@'^5.0.6' but will load
+318 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+318 warn unmet dependency which is version 6.0.4
+319 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\foreground-child\node_modules\tap requires bluebird@'^3.3.1' but will load
+319 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\bluebird,
+319 warn unmet dependency which is version 2.11.0
+320 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\foreground-child\node_modules\tap requires glob@'^7.0.0' but will load
+320 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+320 warn unmet dependency which is version 6.0.4
+321 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\foreground-child\node_modules\tap requires nyc@'^9.0.1' but will load
+321 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\nyc,
+321 warn unmet dependency which is version 3.2.2
+322 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\foreground-child\node_modules\tap requires tap-mocha-reporter@'^2.0.0' but will load
+322 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-mocha-reporter,
+322 warn unmet dependency which is version 0.0.27
+323 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\foreground-child\node_modules\tap requires tap-parser@'^2.2.0' but will load
+323 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-parser,
+323 warn unmet dependency which is version 1.3.2
+324 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\foreground-child\node_modules\tap requires tmatch@'^3.0.0' but will load
+324 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tmatch,
+324 warn unmet dependency which is version 1.0.2
+325 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\which\node_modules\tap requires bluebird@'^3.3.1' but will load
+325 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\bluebird,
+325 warn unmet dependency which is version 2.11.0
+326 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\which\node_modules\tap requires glob@'^7.0.0' but will load
+326 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+326 warn unmet dependency which is version 6.0.4
+327 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\which\node_modules\tap requires nyc@'^11.1.0' but will load
+327 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\nyc,
+327 warn unmet dependency which is version 3.2.2
+328 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\which\node_modules\tap requires signal-exit@'^3.0.0' but will load
+328 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\signal-exit,
+328 warn unmet dependency which is version 2.1.2
+329 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\which\node_modules\tap requires tap-mocha-reporter@'^3.0.6' but will load
+329 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-mocha-reporter,
+329 warn unmet dependency which is version 0.0.27
+330 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\which\node_modules\tap requires tap-parser@'^5.3.1' but will load
+330 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-parser,
+330 warn unmet dependency which is version 1.3.2
+331 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\which\node_modules\tap requires tmatch@'^3.1.0' but will load
+331 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tmatch,
+331 warn unmet dependency which is version 1.0.2
+332 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\tap requires bluebird@'^3.3.1' but will load
+332 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\bluebird,
+332 warn unmet dependency which is version 2.11.0
+333 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\tap requires glob@'^7.0.0' but will load
+333 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+333 warn unmet dependency which is version 6.0.4
+334 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\tap requires nyc@'^6.6.1' but will load
+334 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\nyc,
+334 warn unmet dependency which is version 3.2.2
+335 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\tap requires tmatch@'^2.0.1' but will load
+335 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tmatch,
+335 warn unmet dependency which is version 1.0.2
+336 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\inflight\node_modules\tap requires bluebird@'^3.3.1' but will load
+336 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\bluebird,
+336 warn unmet dependency which is version 2.11.0
+337 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\inflight\node_modules\tap requires glob@'^7.0.0' but will load
+337 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+337 warn unmet dependency which is version 6.0.4
+338 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\inflight\node_modules\tap requires nyc@'^7.1.0' but will load
+338 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\nyc,
+338 warn unmet dependency which is version 3.2.2
+339 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\inflight\node_modules\tap requires signal-exit@'^3.0.0' but will load
+339 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\signal-exit,
+339 warn unmet dependency which is version 2.1.2
+340 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\inflight\node_modules\tap requires tap-mocha-reporter@'^2.0.0' but will load
+340 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-mocha-reporter,
+340 warn unmet dependency which is version 0.0.27
+341 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\inflight\node_modules\tap requires tap-parser@'^2.2.0' but will load
+341 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-parser,
+341 warn unmet dependency which is version 1.3.2
+342 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\inflight\node_modules\tap requires tmatch@'^2.0.1' but will load
+342 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tmatch,
+342 warn unmet dependency which is version 1.0.2
+343 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\once\node_modules\tap requires bluebird@'^3.3.1' but will load
+343 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\bluebird,
+343 warn unmet dependency which is version 2.11.0
+344 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\once\node_modules\tap requires glob@'^7.0.0' but will load
+344 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+344 warn unmet dependency which is version 6.0.4
+345 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\once\node_modules\tap requires nyc@'^7.1.0' but will load
+345 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\nyc,
+345 warn unmet dependency which is version 3.2.2
+346 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\once\node_modules\tap requires signal-exit@'^3.0.0' but will load
+346 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\signal-exit,
+346 warn unmet dependency which is version 2.1.2
+347 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\once\node_modules\tap requires tap-mocha-reporter@'^2.0.0' but will load
+347 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-mocha-reporter,
+347 warn unmet dependency which is version 0.0.27
+348 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\once\node_modules\tap requires tap-parser@'^2.2.0' but will load
+348 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-parser,
+348 warn unmet dependency which is version 1.3.2
+349 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\once\node_modules\tap requires tmatch@'^2.0.1' but will load
+349 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tmatch,
+349 warn unmet dependency which is version 1.0.2
+350 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\only-shallow\node_modules\tap requires glob@'^5.0.6' but will load
+350 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+350 warn unmet dependency which is version 6.0.4
+351 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color\node_modules\mocha requires glob@'7.1.1' but will load
+351 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+351 warn unmet dependency which is version 6.0.4
+352 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color\node_modules\mocha requires supports-color@'3.1.2' but will load
+352 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color,
+352 warn unmet dependency which is version 1.3.1
+353 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color\node_modules\require-uncached\node_modules\ava requires bluebird@'^3.0.0' but will load
+353 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\bluebird,
+353 warn unmet dependency which is version 2.11.0
+354 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color\node_modules\require-uncached\node_modules\ava requires supports-color@'^4.0.0' but will load
+354 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color,
+354 warn unmet dependency which is version 1.3.1
+355 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color\node_modules\require-uncached\node_modules\xo requires eslint@'^2.12.0' but will load
+355 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+355 warn unmet dependency which is version 4.3.0
+356 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color\node_modules\require-uncached\node_modules\xo requires resolve-from@'^2.0.0' but will load
+356 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\supports-color\node_modules\require-uncached\node_modules\resolve-from,
+356 warn unmet dependency which is version 1.0.1
+357 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\safe-buffer\node_modules\standard requires eslint@'~3.19.0' but will load
+357 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+357 warn unmet dependency which is version 4.3.0
+358 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\safe-buffer\node_modules\zuul requires debug@'2.1.0' but will load
+358 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+358 warn unmet dependency which is version 2.6.8
+359 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\safe-buffer\node_modules\zuul requires express@'3.4.8' but will load
+359 warn unmet dependency E:\project\JGweb\JGweb\node_modules\express,
+359 warn unmet dependency which is version 4.15.4
+360 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\safe-buffer\node_modules\tape\node_modules\tap requires nyc@'^9.0.1' but will load
+360 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\nyc,
+360 warn unmet dependency which is version 10.3.2
+361 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\safe-buffer\node_modules\tape\node_modules\tap requires tap-parser@'^2.2.0' but will load
+361 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\safe-buffer\node_modules\tape\node_modules\tap-parser,
+361 warn unmet dependency which is version 3.0.5
+362 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-parser\node_modules\tape requires glob@'~3.2.9' but will load
+362 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tap-parser\node_modules\glob,
+362 warn unmet dependency which is version 5.0.15
+363 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\inherits\node_modules\tap\node_modules\coveralls requires js-yaml@'3.6.1' but will load
+363 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\inherits\node_modules\tap\node_modules\js-yaml,
+363 warn unmet dependency which is version 3.10.0
+364 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\inherits\node_modules\tap\node_modules\standard requires eslint@'~2.10.2' but will load
+364 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+364 warn unmet dependency which is version 4.3.0
+365 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\inherits\node_modules\tap\node_modules\which requires isexe@'^2.0.0' but will load
+365 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\inherits\node_modules\tap\node_modules\isexe,
+365 warn unmet dependency which is version 1.1.2
+366 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\tmatch\node_modules\tap requires glob@'^5.0.6' but will load
+366 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob,
+366 warn unmet dependency which is version 6.0.4
+367 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\core-util-is\node_modules\tap\node_modules\glob\node_modules\path-is-absolute\node_modules\xo requires eslint@'^2.12.0' but will load
+367 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+367 warn unmet dependency which is version 4.3.0
+368 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\babel-polyfill\node_modules\babel-runtime requires regenerator-runtime@'^0.11.0' but will load
+368 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\babel-polyfill\node_modules\regenerator-runtime,
+368 warn unmet dependency which is version 0.10.5
+369 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\buffer\node_modules\browserify requires concat-stream@'~1.5.1' but will load
+369 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\buffer\node_modules\concat-stream,
+369 warn unmet dependency which is version 1.6.0
+370 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\buffer\node_modules\browserify requires string_decoder@'~0.10.0' but will load
+370 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\string_decoder,
+370 warn unmet dependency which is version 1.0.3
+371 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\buffer\node_modules\hyperquest requires through2@'~0.6.3' but will load
+371 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\buffer\node_modules\through2,
+371 warn unmet dependency which is version 2.0.3
+372 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\buffer\node_modules\standard requires eslint@'~2.10.2' but will load
+372 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+372 warn unmet dependency which is version 4.3.0
+373 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\assert\node_modules\mocha requires debug@'2.0.0' but will load
+373 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+373 warn unmet dependency which is version 2.6.8
+374 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\assert\node_modules\mocha requires jade@'0.26.3' but will load
+374 warn unmet dependency E:\project\JGweb\JGweb\node_modules\jade,
+374 warn unmet dependency which is version 1.11.0
+375 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\assert\node_modules\util\node_modules\zuul requires express@'3.4.4' but will load
+375 warn unmet dependency E:\project\JGweb\JGweb\node_modules\express,
+375 warn unmet dependency which is version 4.15.4
+376 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream\node_modules\assert\node_modules\util\node_modules\zuul requires debug@'0.7.3' but will load
+376 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+376 warn unmet dependency which is version 2.6.8
+377 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\sqlstring\node_modules\mkdirp\node_modules\tap requires nyc@'^3.1.0' but will load
+377 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\nyc,
+377 warn unmet dependency which is version 10.3.2
+378 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\after\node_modules\mocha\node_modules\jade requires mkdirp@'0.3.0' but will load
+378 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\after\node_modules\mocha\node_modules\mkdirp,
+378 warn unmet dependency which is version 0.3.3
+379 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\coveralls requires lcov-parse@'0.0.6' but will load
+379 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\lcov-parse,
+379 warn unmet dependency which is version 0.0.9
+380 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\coveralls requires request@'2.40.0' but will load
+380 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\request,
+380 warn unmet dependency which is version 2.53.0
+381 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\mocha requires debug@'2.0.0' but will load
+381 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+381 warn unmet dependency which is version 2.6.8
+382 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\mocha requires jade@'0.26.3' but will load
+382 warn unmet dependency E:\project\JGweb\JGweb\node_modules\jade,
+382 warn unmet dependency which is version 1.11.0
+383 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\grunt requires coffee-script@'~1.3.3' but will load
+383 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\coffee-script,
+383 warn unmet dependency which is version 1.9.1
+384 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\mocha-term-cov-reporter requires mocha@'^1.7.4' but will load
+384 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-mocha-cov\node_modules\mocha,
+384 warn unmet dependency which is version 2.2.1
+385 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-release\node_modules\superagent requires readable-stream@'1.0.27-1' but will load
+385 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\readable-stream,
+385 warn unmet dependency which is version 2.3.3
+386 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt\node_modules\findup-sync requires glob@'~5.0.0' but will load
+386 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt\node_modules\glob,
+386 warn unmet dependency which is version 7.0.6
+387 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt\node_modules\path-is-absolute\node_modules\xo requires eslint@'^2.12.0' but will load
+387 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+387 warn unmet dependency which is version 4.3.0
+388 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\grunt requires findup-sync@'~0.1.2' but will load
+388 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\findup-sync,
+388 warn unmet dependency which is version 0.3.0
+389 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\grunt requires nopt@'~1.0.10' but will load
+389 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\nopt,
+389 warn unmet dependency which is version 3.0.6
+390 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\grunt-contrib-jshint\node_modules\grunt-cli requires nopt@'~1.0.10' but will load
+390 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\nopt,
+390 warn unmet dependency which is version 3.0.6
+391 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\grunt-contrib-jshint\node_modules\grunt-cli requires findup-sync@'~0.1.0' but will load
+391 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\findup-sync,
+391 warn unmet dependency which is version 0.3.0
+392 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\grunt-contrib-jshint\node_modules\grunt-cli requires resolve@'~0.3.1' but will load
+392 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-cli\node_modules\resolve,
+392 warn unmet dependency which is version 1.1.7
+393 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-browserify\node_modules\mocha requires glob@'7.1.1' but will load
+393 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-browserify\node_modules\glob,
+393 warn unmet dependency which is version 7.1.2
+394 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-browserify\node_modules\glob\node_modules\tap requires nyc@'^7.1.0' but will load
+394 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\nyc,
+394 warn unmet dependency which is version 10.3.2
+395 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-browserify\node_modules\grunt-contrib-jshint\node_modules\jshint requires lodash@'3.7.x' but will load
+395 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-browserify\node_modules\lodash,
+395 warn unmet dependency which is version 4.17.4
+396 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\connect-livereload\node_modules\mocha requires debug@'2.0.0' but will load
+396 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+396 warn unmet dependency which is version 2.6.8
+397 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\connect-livereload\node_modules\mocha requires jade@'0.26.3' but will load
+397 warn unmet dependency E:\project\JGweb\JGweb\node_modules\jade,
+397 warn unmet dependency which is version 1.11.0
+398 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\connect-livereload\node_modules\express requires debug@'~2.1.1' but will load
+398 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+398 warn unmet dependency which is version 2.6.8
+399 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\connect-livereload\node_modules\express requires serve-static@'~1.8.1' but will load
+399 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\serve-static,
+399 warn unmet dependency which is version 1.12.4
+400 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\serve-static\node_modules\mocha requires debug@'2.2.0' but will load
+400 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+400 warn unmet dependency which is version 2.6.8
+401 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\serve-static\node_modules\mocha requires jade@'0.26.3' but will load
+401 warn unmet dependency E:\project\JGweb\JGweb\node_modules\jade,
+401 warn unmet dependency which is version 1.11.0
+402 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\opn\node_modules\xo requires eslint@'^3.18.0' but will load
+402 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+402 warn unmet dependency which is version 4.3.0
+403 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\grunt-contrib-nodeunit\node_modules\nodeunit requires tap@'^7.0.0' but will load
+403 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\grunt-contrib-nodeunit\node_modules\tap,
+403 warn unmet dependency which is version 0.7.1
+404 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\grunt-contrib-nodeunit\node_modules\grunt requires async@'~0.1.22' but will load
+404 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-connect\node_modules\async,
+404 warn unmet dependency which is version 1.5.2
+405 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\phantomjs-prebuilt\node_modules\extract-zip requires debug@'2.2.0' but will load
+405 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+405 warn unmet dependency which is version 2.6.8
+406 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\phantomjs-prebuilt\node_modules\webdriverio requires request@'2.74.0' but will load
+406 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\phantomjs-prebuilt\node_modules\request,
+406 warn unmet dependency which is version 2.81.0
+407 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\phantomjs-prebuilt\node_modules\hasha\node_modules\xo requires eslint@'^3.18.0' but will load
+407 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\phantomjs-prebuilt\node_modules\eslint,
+407 warn unmet dependency which is version 2.7.0
+408 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-qunit\node_modules\grunt-shell\node_modules\xo requires eslint@'^3.18.0' but will load
+408 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+408 warn unmet dependency which is version 4.3.0
+409 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\chalk\node_modules\mocha requires supports-color@'3.1.2' but will load
+409 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\chalk\node_modules\supports-color,
+409 warn unmet dependency which is version 2.0.0
+410 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\chalk\node_modules\xo requires eslint@'^3.18.0' but will load
+410 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\eslint,
+410 warn unmet dependency which is version 4.3.0
+411 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\chalk\node_modules\xo requires resolve-from@'^2.0.0' but will load
+411 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\chalk\node_modules\resolve-from,
+411 warn unmet dependency which is version 1.0.1
+412 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\maxmin\node_modules\ava requires chalk@'^0.5.1' but will load
+412 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\chalk,
+412 warn unmet dependency which is version 1.1.3
+413 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\uri-path\node_modules\mocha requires debug@'2.2.0' but will load
+413 warn unmet dependency E:\project\JGweb\JGweb\node_modules\debug,
+413 warn unmet dependency which is version 2.6.8
+414 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\uri-path\node_modules\mocha requires jade@'0.26.3' but will load
+414 warn unmet dependency E:\project\JGweb\JGweb\node_modules\jade,
+414 warn unmet dependency which is version 1.11.0
+415 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\grunt-contrib-nodeunit\node_modules\nodeunit requires tap@'^7.0.0' but will load
+415 warn unmet dependency E:\project\JGweb\JGweb\node_modules\mysql\node_modules\seedrandom\node_modules\grunt-contrib-uglify\node_modules\grunt-contrib-nodeunit\node_modules\tap,
+415 warn unmet dependency which is version 0.7.1
+416 verbose stack Error: The package grunt@1.0.1 does not satisfy its siblings' peerDependencies requirements!
+416 verbose stack     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\lib\install.js:125:32
+416 verbose stack     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\lib\install.js:268:7
+416 verbose stack     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
+416 verbose stack     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+416 verbose stack     at cb (C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+416 verbose stack     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+416 verbose stack     at cb (C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+416 verbose stack     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+416 verbose stack     at cb (C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+416 verbose stack     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+417 verbose cwd E:\project\JGweb\JGweb
+418 error Windows_NT 6.1.7601
+419 error argv "E:\\softInstall\\node\\node.exe" "C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "bootstrap" "--save"
+420 error node v6.5.0
+421 error npm  v2.15.12
+422 error code EPEERINVALID
+423 error peerinvalid The package grunt@1.0.1 does not satisfy its siblings' peerDependencies requirements!
+423 error peerinvalid Peer grunt-mocha-cov@0.4.0 wants grunt@>=0.4.0
+423 error peerinvalid Peer grunt-release@0.14.0 wants grunt@>=1.0.1
+423 error peerinvalid Peer grunt-contrib-connect@1.0.2 wants grunt@>=0.4.0
+424 verbose exit [ 1, true ]

@@ -1,0 +1,154 @@
+.content{
+
+}
+
+.job{
+    width:880px;
+    height:auto;
+    overflow: hidden;
+    margin-top: 20px;
+    float: left;
+}
+.job>h1{
+    font-size: 16px;
+    font-weight:normal;
+    text-align: center;
+    width:400px;
+    height:50px;
+    margin:20px auto;
+    color: #333;
+}
+
+.job-list{
+    width:99%;
+    height:117px;
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction:row;
+    align-items:center;
+    vertical-align: middle;
+    border:1px solid #f3f3f3;
+    text-decoration: none;
+}
+.job-list:hover{
+    text-decoration: none;
+}
+.job-list-left{
+    width:45%;
+}
+.j-l{
+    height:auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    vertical-align: middle;
+}
+.j-l>h1{
+    float: left;
+    font-weight:bold;
+    font-size: 16px;
+    color: #333;
+    margin:0 0 0 20px;
+}
+.j-l>span{
+    float: left;
+    display: block;
+    width:auto;
+    font-size: 12px;
+    color: #fb6b5c;
+    padding:0 5px 0 5px;
+    border:1px solid #fb6b5c;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+.job-list-left>h2{
+    clear: both;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #fb6b5c;
+    margin-top: 15px;
+}
+
+.job-list-mid{
+    width:45%;
+    font-size: 14px;
+    color:#d0d0d0;
+}
+.job-list-mid>span{
+    padding:0 2px 0 2px;
+}
+
+.job-list-right{
+    width:25%;
+}
+.job-list-right>button{
+    width:120px;
+    height:40px;
+    border-radius: 5px;
+    background:#00d1b2;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    outline:none;
+    float: right;
+    margin-right: 20px;
+}
+
+
+
+
+
+.recommend{
+    width:290px;
+    height:auto;
+    float: right;
+    margin-top: 20px;
+    overflow: hidden;
+    margin-bottom:40px;
+    border:1px solid #f3f3f3;
+}
+
+.recommend>a:last-child{
+    border-bottom: none;
+}
+.recommend>h1{
+    width:90%;
+    border-bottom: 1px solid #f3f3f3;
+    font-weight:bold;
+    font-size: 16px;
+   margin-left: 10px;
+    color: #333;
+    padding:10px 0 10px 0;
+}
+
+.recommend-list{
+    width:90%;
+    height:100px;
+    display: block;
+    margin:auto;
+    text-decoration: none;
+    border-bottom: 1px solid #f3f3f3;
+}
+.recommend-list:hover{
+    text-decoration: none;
+}
+
+.recommend-list>h1{
+    font-size: 14px;
+    color: #333;
+    font-weight:normal;
+    margin-top: 15px;
+}
+
+.recommend-list>h2{
+    font-size: 14px;
+    color: #fb6b5c;
+    font-weight:normal;
+    margin: 10px 0 10px 0;
+}
+.recommend-list>span{
+    font-size: 12px;
+    color:#c3c3c3;
+    font-weight:normal;
+}

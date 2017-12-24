@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下载</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">-->
+</head>
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+    }
+    .con{
+        min-width: 1200px;
+        width:100%;
+        height:auto;
+        overflow: hidden;
+        margin:auto;
+        position: relative;
+    }
+
+    .con>img{
+        width:100%;
+        height:auto;
+        position: relative;
+        z-index:10;
+    }
+
+    .box{
+        width:100%;
+        height:300px;
+        position: absolute;
+        top:0;
+        left:0;
+        z-index:11;
+        opacity:0;
+        background: #000;
+        margin-top: 10%;
+    }
+
+    .win{
+        width:400px;
+        height:300px;
+        position: fixed;
+        top:0;
+        z-index:199;
+        left:50%;
+        margin-left: -200px;
+        top:150px;
+        display: none;
+    }
+
+    .win>img{
+        width:100%;
+        height:100%;
+    }
+    .mask{
+        width:100%;
+        height: 100%;
+        background: #000;
+        position: fixed;
+        top:0;
+        z-index:99;
+        opacity:.4;
+        display: none;
+    }
+</style>
+<body>
+
+<div class="mask"></div>
+<div class="con">
+    <img src="../public/imgs/download/bg.png" alt="">
+    <div class="box"></div>
+    <div class="win">
+        <img src="../public/imgs/download/win.png" alt="">
+    </div>
+</div>
+
+
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $('.box').click(function () {
+        $('.win').show();
+        $('.box').hide();
+        $('.mask').show();
+    })
+
+
+    $('.win').click(function () {
+        $('.win').hide();
+        $('.box').show();
+        $('.mask').hide()
+    })
+</script>
+
+
+
+</html>

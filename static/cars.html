@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>新旧车辆</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../public/css/basic.css">
+    <link href="../public/lib/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<div id="con" ng-controller="ListController">
+    <top></top>
+
+    <div id="search">
+        <div class="logo">
+            <img src="../public/imgs/basic/logo.png" alt="">
+        </div>
+
+        <div class="search-box">
+            <div class="key">
+                <span ng-bind="category[0].title"></span>
+                <div class="key-list">
+                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                </div>
+            </div>
+
+            <div class="search-input">
+                <span></span>
+                <input type="text" placeholder="请输入关键字进行搜索" ng-model="kwd" ng-blur="search(kwd)">
+                <div class="search-list" ng-if="searchListFlag">
+                    <a href="" ng-repeat="searchList in searchListData" ng-bind="searchList.title" ng-click="searchDetail(searchList.title)"></a>
+                </div>
+            </div>
+
+            <div class="search-btn" ng-click="searchResult(kwd)">
+                搜索
+            </div>
+        </div>
+    </div>
+    <!--顶部导航开始-->
+    <nav></nav>
+    <!--顶部导航结束-->
+
+
+    <!--面包屑导航开始-->
+    <div class="bread">
+        <ul>
+            <li><a href="">全部</a></li>
+            <li> > </li>
+            <li><a href="">二手车辆</a></li>
+        </ul>
+    </div>
+    <!--面包屑导航结束-->
+
+    <div id="detail">
+        <!--回到顶部开始-->
+        <div id="toTop">
+            <div class="toTop-up"></div>
+            <div class="toTop-down">
+                <div class="toTop-down-erweima"></div>
+            </div>
+        </div>
+        <!--回到顶部结束-->
+
+
+
+        <!--顶部筛选开始-->
+        <div id="condition">
+            <div class="condition-one">
+                <div class="condition-title">分类</div>
+                <button class="no-limit no-limit-cat" ng-click="noLimit()">不限</button>
+                <div class="condition-item-box condition-item-box-cat">
+                    <a href="" ng-repeat="itm in usedCategory" ng-bind="itm.title" ng-click ="Category(itm.id,$index)"></a>
+                </div>
+            </div>
+
+            <div class="condition-one">
+                <div class="condition-title condition-title2">位置</div>
+                <button class="no-limit no-limit-location">不限</button>
+                <div class="condition-item-box condition-item-box-location">
+                    <a href="" ng-repeat="itm in usedLocation" ng-bind="itm.title" ng-click="location(itm.id,itm.level,$index)" ng-class=""></a>
+                </div>
+            </div>
+
+            <div class="condition-one">
+                <div class="condition-title condition-title3">排序</div>
+                <button class="no-limit no-limit-moren">默认</button>
+                <div class="condition-item-box">
+                    <a href="" ng-click="rank(2)">价格最高</a>
+                    <a href="" ng-click="rank(1)">价格最低</a>
+                    <a href="" ng-click="rank(0)">时间最新</a>
+                    <a href="" ng-click="rank(3)">时间最晚</a>
+                </div>
+            </div>
+
+            <div class="condition-one" style="border-bottom: none">
+                <div class="condition-title condition-title3">来源</div>
+                <button class="no-limit no-limit-from">默认</button>
+                <div class="condition-item-box">
+                    <a href="" ng-click="from(1)">个人</a>
+                    <a href="" ng-click="from(2)">商家</a>
+                    <a href="" ng-click="from(3)">经纪人</a>
+                </div>
+            </div>
+        </div>
+        <!--顶部筛选结束-->
+
+
+        <!--内容区域开始-->
+
+        <div id="content">
+            <h1 ng-if="havaData">暂时没有相关的数据</h1>
+            <a href="" class="content-list" ng-repeat="item in listData">
+                <div class="img-box">
+                    <img src="{{item.image}}{{bigImg}}" alt="">
+                </div>
+                <div class="text-box">
+                    <h3>{{item.title.length>16?item.title.substring(0,4)+'...':item.title}}</h3>
+                    <h2>${{item.price}}</h2>
+                    <h4>{{item.area}} {{item.city}}</h4>
+                </div>
+            </a>
+            <!--<a href="" class="content-list">-->
+                <!--<div class="img-box">-->
+                    <!--<img src="../public/imgs/car/list.png" alt="">-->
+                <!--</div>-->
+                <!--<div class="text-box">-->
+                    <!--<h3>宜家单人小木床 120刀出售欢迎来看</h3>-->
+                    <!--<h2>$140</h2>-->
+                    <!--<h4>NY 纽约 皇后区</h4>-->
+                <!--</div>-->
+            <!--</a>-->
+        </div>
+        <!--内容区域结束-->
+
+    </div>
+
+
+
+    <!--分页开始-->
+    <div class="page-wrap" ng-show="!havaData">
+        <div class="pagenition">
+            <uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="尾页" boundary-links="true" boundary-link-numbers="true" items-per-page="20" ng-change="pageChanged()"></uib-pagination>
+        </div>
+    </div>
+    <!--分页结束-->
+
+    <footer></footer>
+    <bottom></bottom>
+</div>
+</body>
+<script src="../public/lib/jquery-1.7.2.js"></script>
+<script src="../public/lib/angular.min.js"></script>
+<script src="../public/lib/ui-bootstrap.min.js"></script>
+<script src="../public/lib/ui-bootstrap-tpls.min.js"></script>
+<script src="../public/js/basic.js"></script>
+<script src="../public/js/car.js"></script>
+</html>
