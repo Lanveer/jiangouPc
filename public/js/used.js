@@ -447,7 +447,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
                 page:$scope.currentPage,
                 tx:'3f556f66353c5945a3633ae209a3e0ff'
             }
-        })
+        });
         detailComment.then(function (res) {
             if(res.data.error!=200){
                 //获取详情出错
@@ -465,7 +465,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
 
         })
     }
-})
+});
 
 
 
