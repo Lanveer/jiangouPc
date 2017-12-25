@@ -342,7 +342,133 @@ myApp.controller('ListController',function ($scope,$http,$log) {
 })
 
 
+myApp.controller('detailController',function ($scope,$http,$log) {
+    //    详情页内容
+    url = window.location.href;
+    re = getQueryString(url);
+    var id= re.id;
 
+
+    var detailPromise=$http({
+        url:baseUrl+'magor/five/details',
+        method:'get',
+        params:{
+            id:id,
+            grand_id:2,
+            auth_name:'name',
+            name:1,
+            user_id:1402,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    detailPromise.then(function (res) {
+        if(res.data.error!=200){
+            //获取详情出错
+        }else{
+            console.log(res)
+            $scope.detailData= res.data.data;
+            $scope.bigImg='800_600.jpg';
+        }
+    });
+
+
+//    获取当前用户信息
+    var userInfoPromise=$http({
+        url:baseUrl+'newpersonal/personal/list',
+        method:'get',
+        params:{
+            user_id:1402,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    userInfoPromise.then(function (res) {
+        if(res.data.error!=200){
+            //获取详情出错
+        }else{
+            if(res.data.data.length!=0){
+                $scope.totalItems=res.data.data.length;
+                $scope.personHavaData=false;
+                if(res.data.data.length>3){
+                    // var all=res.data.data;
+                    // var showAll=all.slice(0,3);
+                    // console.log(showAll)
+                    $scope.personList= res.data.data.slice(0,3);
+                }else{
+                    $scope.personList=res.data.data;
+                }
+                console.log($scope.personList)
+            }else{
+                $scope.personHavaData=true;
+            }
+
+        }
+
+    });
+
+
+//    评论列表
+    var detailComment=$http({
+        url:baseUrl+'magor/five/comments',
+        method:'get',
+        params:{
+            id:id,
+            grand_id:2,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    detailComment.then(function (res) {
+        if(res.data.error!=200){
+            //获取详情出错
+        }else{
+            $scope.commentList=res.data.data
+            if(res.data.data.length!=0){
+                $scope.havaData=false;
+                $scope.maxSize = 5;
+                $scope.currentPage = 1;
+                $scope.totalItems = Number(res.data.data[0].total_count);
+            }else{
+                $scope.havaData=true;
+            }
+        }
+    });
+
+//    分页
+    $scope.pageChangedDetail= function () {
+        $log.log('Page changed to: ' + $scope.currentPage);
+        var detailComment=$http({
+            url:baseUrl+'magor/five/comments',
+            method:'get',
+            params:{
+                id:id,
+                grand_id:2,
+                auth_name:'name',
+                name:1,
+                page:$scope.currentPage,
+                tx:'3f556f66353c5945a3633ae209a3e0ff'
+            }
+        });
+        detailComment.then(function (res) {
+            if(res.data.error!=200){
+                //获取详情出错
+            }else{
+                $scope.commentList=res.data.data
+                if(res.data.data.length!=0){
+                    $scope.havaData=false;
+                    $scope.maxSize = 5;
+                    $scope.currentPage = 1;
+                    $scope.totalItems = Number(res.data.data[0].total_count);
+                }else{
+                    $scope.havaData=true;
+                }
+            }
+
+        })
+    }
+});
 
 
 

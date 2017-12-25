@@ -344,32 +344,35 @@ myApp.controller('ListController',function ($scope,$http,$log) {
 
 myApp.controller('detailController',function ($scope,$http,$log) {
     //    详情页内容
+    url = window.location.href;
+    re = getQueryString(url);
+    var id= re.id;
+
+
     var detailPromise=$http({
         url:baseUrl+'magor/five/details',
         method:'get',
         params:{
-            id:100076,
+            id:id,
             grand_id:1,
             auth_name:'name',
             name:1,
             user_id:1402,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
-    })
+    });
     detailPromise.then(function (res) {
         if(res.data.error!=200){
         //获取详情出错
         }else{
             console.log(res)
            $scope.detailData= res.data.data;
-           $scope.bigImg='800_600.jpg'
+           $scope.bigImg='800_600.jpg';
         }
-
-    })
+    });
 
 
 //    获取当前用户信息
-
     var userInfoPromise=$http({
         url:baseUrl+'newpersonal/personal/list',
         method:'get',
@@ -379,7 +382,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
             name:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
-    })
+    });
     userInfoPromise.then(function (res) {
         if(res.data.error!=200){
             //获取详情出错
@@ -402,7 +405,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
 
         }
 
-    })
+    });
 
 
 //    评论列表
@@ -410,13 +413,13 @@ myApp.controller('detailController',function ($scope,$http,$log) {
         url:baseUrl+'magor/five/comments',
         method:'get',
         params:{
-            id:100076,
+            id:id,
             grand_id:1,
             auth_name:'name',
             name:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
-    })
+    });
     detailComment.then(function (res) {
         if(res.data.error!=200){
             //获取详情出错
@@ -431,7 +434,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
                 $scope.havaData=true;
             }
         }
-    })
+    });
 
 //    分页
     $scope.pageChangedDetail= function () {
@@ -440,7 +443,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
             url:baseUrl+'magor/five/comments',
             method:'get',
             params:{
-                id:100102,
+                id:id,
                 grand_id:1,
                 auth_name:'name',
                 name:1,

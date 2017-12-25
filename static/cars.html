@@ -118,7 +118,7 @@
 
         <div id="content">
             <h1 ng-if="havaData">暂时没有相关的数据</h1>
-            <a href="" class="content-list" ng-repeat="item in listData">
+            <a href="cars-detail.html?id={{item.id}}" target="_blank" class="content-list" ng-repeat="item in listData">
                 <div class="img-box">
                     <img src="{{item.image}}{{bigImg}}" alt="">
                 </div>

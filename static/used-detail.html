@@ -98,6 +98,7 @@
                     <div class="detail-comment-h1">
                         <h1 ng-bind="'点评' +'&nbsp;'+ '('+detailData.comment+')'"></h1>
                     </div>
+                    <h1 class="nocommenttips" ng-show="havaData">暂时没有评论</h1>
                     <a href="" class="detail-comment-item" ng-repeat="item in commentList">
                         <div class="d-c-top">
                             <div class="d-c-top-left">
@@ -145,7 +146,7 @@
                         <h1 ng-bind="detailData.merchant.zh_name"></h1>
                         <h2>注册于2017-01-12</h2>
                         <div class="detail-right-person-bottom">
-                            <h1 ng-bind=" '他的宝贝'+'('+totalItems+')'"> （20）</h1>
+                            <h1 ng-bind=" '他的宝贝'+'('+totalItems+')'"></h1>
                             <a href="">更多</a>
                         </div>
                     </div>
