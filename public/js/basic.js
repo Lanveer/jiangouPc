@@ -2,8 +2,12 @@
  * Created by Administrator on 2017/11/6.
  */
 
-//baseUrl
-baseUrl='http://106.14.56.22:9529/index.php?r=';
+//测试服务器
+// baseUrl='http://106.14.56.22:9529/html.php?r=';
+
+//正式服务器
+ baseUrl='http://54.161.25.252/index.php?r=';
+
 
 //四大模块列表页
 // listHost='http://106.14.56.22:9529/index.php?r=v2/magor/lists';
@@ -153,7 +157,7 @@ $(function () {
 
     //导航鼠标事件
     $('.nav-list>ul>li').mouseover(function (e) {
-        $('.index-nav-detail').show();
+        $('.html-nav-detail').show();
         $(this).css({
             background:'#fff'
         })
@@ -161,16 +165,16 @@ $(function () {
         e.preventDefault()
         var idx= $(this).index();
         var idx2=$(this).index()-1
-        $('.index-sec').eq(idx).show();
+        $('.html-sec').eq(idx).show();
         $('.sec-item').eq(idx2).show();
     }).mouseout(function () {
-            $('.index-nav-detail').hide();
+            $('.html-nav-detail').hide();
         $(this).css({
             background:'#f8f8f8'
         })
         var idx= $(this).index();
             var idx2=$(this).index()-1
-            $('.index-sec').eq(idx).hide();
+            $('.html-sec').eq(idx).hide();
             $('.s   ec-item').eq(idx2).hide();
     })
 

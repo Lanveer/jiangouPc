@@ -3,6 +3,9 @@
     padding:0;
     font-family:"Microsoft yahei";
 }
+img {
+    object-fit: cover;
+}
 
 #con{
     width:100%;
@@ -616,14 +619,14 @@ ul>li{
     /*background: #000;*/
     /*position: absolute;*/
     /*top:0px;*/
-    /*z-index:999;*/
+    /*z-html:999;*/
 /*}*/
 
 /*.guide-info{*/
     /*width:100%;*/
     /*height:auto;*/
     /*background:red;*/
-    /*z-index:55;*/
+    /*z-html:55;*/
     /*!*display: none;*!*/
     /*position: relative;*/
     /*top:-4px;*/
@@ -1320,6 +1323,7 @@ font-size: 15px;
 .detail-body>p{
     font-size: 14px;
     color: #7b7b7b;
+    line-height: 180%;
     margin:15px 30px  30px 30px;
 }
 
@@ -1730,6 +1734,7 @@ font-size: 14px;
     font-size: 14px;
     color:#484848;
     font-weight:normal;
+    margin: 0;
 }
 
 .detail-right-body-list-right>span{

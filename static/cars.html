@@ -115,10 +115,9 @@
 
 
         <!--内容区域开始-->
-
         <div id="content">
             <h1 ng-if="havaData">暂时没有相关的数据</h1>
-            <a href="cars-detail.html?id={{item.id}}" target="_blank" class="content-list" ng-repeat="item in listData">
+            <a href="cars-detail.html?id={{item.id}}" target="_blank" class="content-list" ng-repeat="item in listData track by $index">
                 <div class="img-box">
                     <img src="{{item.image}}{{bigImg}}" alt="">
                 </div>
@@ -128,16 +127,6 @@
                     <h4>{{item.area}} {{item.city}}</h4>
                 </div>
             </a>
-            <!--<a href="" class="content-list">-->
-                <!--<div class="img-box">-->
-                    <!--<img src="../public/imgs/car/list.png" alt="">-->
-                <!--</div>-->
-                <!--<div class="text-box">-->
-                    <!--<h3>宜家单人小木床 120刀出售欢迎来看</h3>-->
-                    <!--<h2>$140</h2>-->
-                    <!--<h4>NY 纽约 皇后区</h4>-->
-                <!--</div>-->
-            <!--</a>-->
         </div>
         <!--内容区域结束-->
 

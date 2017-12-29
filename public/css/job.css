@@ -9,6 +9,10 @@
     margin-top: 20px;
     float: left;
 }
+.job>a{
+    text-decoration: none;
+}
+
 .job>h1{
     font-size: 16px;
     font-weight:normal;

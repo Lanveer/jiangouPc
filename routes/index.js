@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
       }else{
         console.log(result)
         res.render('index',{
-          title:'success',
+          title:result,
             data:result
         })
       }

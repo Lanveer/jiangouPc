@@ -95,8 +95,6 @@
                 <div class="condition-title condition-title3">时间</div>
                 <button class="no-limit no-limit-moren">默认</button>
                 <div class="condition-item-box">
-                    <!--<a href="" ng-click="rank(2)">价格最高</a>-->
-                    <!--<a href="" ng-click="rank(1)">价格最低</a>-->
                     <a href="" ng-click="rank(0)">时间最新</a>
                     <a href="" ng-click="rank(3)">时间最晚</a>
                 </div>
@@ -134,7 +132,7 @@
         <div class="content">
             <div class="job">
                 <h1 ng-if="havaData">暂时没有相关的数据</h1>
-                <a href="" class="job-list" ng-repeat="item in listData">
+                <a href="job-detail.html?id={{item.id}}" target="_blank" class="job-list" ng-repeat="item in listData">
                     <div class="job-list-left">
                         <div class="j-l">
                             <h1 ng-bind="item.title"></h1>

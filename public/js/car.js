@@ -302,7 +302,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
             if(res.data.error!=200){
                 //处理异常
             }else{
-                $scope.bigImg='800_600.jpg'
+                $scope.bigImg='800_600.jpg';
                 $scope.listData=res.data.data;
                 if($scope.listData.length>0){
                     $scope.havaData=false;
@@ -339,7 +339,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
             },10);
         })
     };
-})
+});
 
 
 myApp.controller('detailController',function ($scope,$http,$log) {

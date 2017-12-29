@@ -49,17 +49,17 @@ myApp.controller('CarouselDemoCtrl', function ($scope) {
     var slides = $scope.slides = [];
     var addSlide = function () {
         slides.push({
-            image: '../public/imgs/index/test1.png',
+            image: '../public/imgs/html/test1.png',
             text: 'Image1',
             id: 0
         });
         slides.push({
-            image: '../public/imgs/index/test2.png',
+            image: '../public/imgs/html/test2.png',
             text: 'Image2',
             id: 1
         });
         slides.push({
-            image: '../public/imgs/index/test3.png',
+            image: '../public/imgs/html/test3.png',
             text: 'Image2',
             id: 2
         });
