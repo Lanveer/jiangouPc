@@ -3,7 +3,7 @@
  */
 
 //测试服务器
-// baseUrl='http://106.14.56.22:9529/html.php?r=';
+// baseUrl='http://106.14.56.22:9529/index.php?r=';
 
 //正式服务器
  baseUrl='http://54.161.25.252/index.php?r=';
