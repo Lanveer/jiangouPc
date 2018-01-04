@@ -110,6 +110,10 @@ myApp.directive('nav',function(){
 
 //获取列表数据
 myApp.controller('ListController',function ($scope,$http,$log) {
+
+    url = window.location.href;
+    re = getQueryString(url);
+    var pid= re.id;
     //基础数据获取
     var baseDataPromise= $http({
         url:baseUrl+'homepage/home/basedata',
@@ -247,7 +251,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
                 grand_id:5,
                 auth_name:'id',
                 id:1,
-                category_parent:category_parent,
+                category_parent:category_parent==undefined?pid:category_parent,
                 category_child:category_child,
                 type:type,
                 isOpen:isOpen,
@@ -348,4 +352,179 @@ myApp.controller('ListController',function ($scope,$http,$log) {
         })
     };
 })
+
+//详情页数据
+myApp.controller('detailController',function ($scope,$http,$log) {
+    //    详情页内容
+    url = window.location.href;
+    re = getQueryString(url);
+    var id= re.id;
+    var merchant_id= re.merchant_id;
+
+    var detailPromise=$http({
+        url:baseUrl+'delicacy/food/details',
+        method:'get',
+        params:{
+            food_id:id,
+            auth_name:'name',
+            name:1,
+            lng:104.06901177707833,
+            lat:30.55102013717875,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    detailPromise.then(function (res) {
+
+        if(res.data.error!=200){
+            //获取详情出错
+        }else{
+            $scope.detailData= res.data.data;
+            $scope.bigImg='800_600.jpg';
+            console.log('fooddetail is :',$scope.detailData);
+        }
+    });
+
+
+//    获取当前用户信息
+
+
+    //获取图片信息
+    var picturePromise=$http({
+        url:baseUrl+'delicacy/food/images',
+        method:'get',
+        params:{
+            food_id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    picturePromise.then(function (res) {
+        console.log('pic is :',res)
+        if(res.data.error!=200){
+        }else{
+            var imgs=res.data.data;
+            if(imgs.length>=1){
+                var imgData=res.data.data;
+                imgData.shift();
+                $scope.imgs=imgData;
+            }else{
+            }
+        }
+    });
+
+
+    // 门店展示列表
+    var storePromise=$http({
+        url:baseUrl+'merchant/shop/stores',
+        method:'get',
+        params:{
+            merchant_id:merchant_id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    storePromise.then(function (res) {
+        if(res.data.error!=200){
+        }else{
+            var store= res.data.data;
+            if(store.length!=0){
+                $scope.store=res.data.data;
+                $scope.haveStore=false;
+            }else{
+                $scope.haveStore=true;
+            }
+        }
+    });
+
+
+    // 推荐获取
+    var recommendPromise=$http({
+        url:baseUrl+'merchant/shop/recommend',
+        method:'get',
+        params:{
+            shop_id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    recommendPromise.then(function (res) {
+        if(res.data.error!=200){
+        }else{
+            var recommend= res.data.data;
+            if(recommend.length!=0){
+                $scope.recommend=res.data.data;
+                $scope.haveRecommend=false;
+            }else{
+                $scope.haveRecommend=true;
+            }
+        }
+    });
+
+
+//    评论列表
+    var detailComment=$http({
+        url:baseUrl+'merchant/shop/commentlist',
+        method:'get',
+        params:{
+            merchant_id:merchant_id,
+            shop_id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    detailComment.then(function (res) {
+        console.log('comment is :',res)
+        if(res.data.error!=200){
+            //获取详情出错
+        }else{
+            if(res.data.data.length!=0){
+                $scope.commentList=res.data.data;
+                $scope.havaComment=false;
+                $scope.maxSize = 5;
+                $scope.currentPage = 1;
+                $scope.totalItems = Number(res.data.data[0].total_count);
+            }else{
+                $scope.havaComment=true;
+            }
+        }
+    });
+
+
+//    分页
+    $scope.pageChangedDetail= function () {
+        $log.log('Page changed to: ' + $scope.currentPage);
+        var detailComment=$http({
+            url:baseUrl+'magor/five/comments',
+            method:'get',
+            params:{
+                id:id,
+                grand_id:2,
+                auth_name:'name',
+                name:1,
+                page:$scope.currentPage,
+                tx:'3f556f66353c5945a3633ae209a3e0ff'
+            }
+        });
+        detailComment.then(function (res) {
+            if(res.data.error!=200){
+                //获取详情出错
+            }else{
+                $scope.commentList=res.data.data
+                if(res.data.data.length!=0){
+                    $scope.havaData=false;
+                    $scope.maxSize = 5;
+                    $scope.currentPage = 1;
+                    $scope.totalItems = Number(res.data.data[0].total_count);
+                }else{
+                    $scope.havaData=true;
+                }
+            }
+
+        })
+    }
+});
 

@@ -109,6 +109,11 @@ myApp.directive('nav',function(){
 
 //获取列表数据
 myApp.controller('ListController',function ($scope,$http,$log) {
+
+    url = window.location.href;
+    re = getQueryString(url);
+    var parentId= re.pid;
+    var childId= re.cid;
     //基础数据获取
     var baseDataPromise= $http({
         url:baseUrl+'homepage/home/basedata',
@@ -118,7 +123,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
             id:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
-    })
+    });
     baseDataPromise.then(function (res){
         if(res.data.error==200){
             $scope.usedCategory=res.data.data.category[2].child;
@@ -251,7 +256,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
     }
 
     //列表数据获取
-    loadListData(5)
+    loadListData(5);
 
 
     //获取列表数据公共函数
@@ -261,7 +266,6 @@ myApp.controller('ListController',function ($scope,$http,$log) {
         var type=args.type;
         var isOpen=args.isOpen;
         var name=args.name;
-
         var listPromise=$http({
             url:baseUrl+'merchant/shop/list',
             method:'get',
@@ -269,8 +273,8 @@ myApp.controller('ListController',function ($scope,$http,$log) {
                 grand_id:5,
                 auth_name:'id',
                 id:1,
-                category_parent:category_parent,
-                category_child:category_child,
+                category_parent:category_parent==undefined?parentId:category_parent,
+                category_child:category_child==undefined? 0 : category_child,
                 type:type,
                 isOpen:isOpen,
                 name:name,
@@ -374,6 +378,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
     url = window.location.href;
     re = getQueryString(url);
     var id= re.id;
+    var merchant_id= re.merchant_id;
 
 
     var detailPromise=$http({
@@ -400,67 +405,131 @@ myApp.controller('detailController',function ($scope,$http,$log) {
 
 //    获取当前用户信息
     var userInfoPromise=$http({
-        url:baseUrl+'newpersonal/personal/list',
+        url:baseUrl+'merchant/shop/merchant',
         method:'get',
         params:{
-            user_id:1402,
+            merchant_id:merchant_id,
             auth_name:'name',
             name:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
     });
     userInfoPromise.then(function (res) {
+     console.log(res)
         if(res.data.error!=200){
             //获取详情出错
         }else{
-            if(res.data.data.length!=0){
-                $scope.totalItems=res.data.data.length;
-                $scope.personHavaData=false;
-                if(res.data.data.length>3){
-                    // var all=res.data.data;
-                    // var showAll=all.slice(0,3);
-                    // console.log(showAll)
-                    $scope.personList= res.data.data.slice(0,3);
-                }else{
-                    $scope.personList=res.data.data;
-                }
-                console.log($scope.personList)
-            }else{
-                $scope.personHavaData=true;
-            }
-
+            console.log(res)
+            $scope.person=res.data.data;
         }
 
+    });
+
+ //获取图片信息
+    var picturePromise=$http({
+        url:baseUrl+'merchant/shop/images',
+        method:'get',
+        params:{
+            shop_id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    picturePromise.then(function (res) {
+        console.log(res)
+        if(res.data.error!=200){
+        }else{
+            var imgs=res.data.data;
+            if(imgs.length>1){
+                var imgData=res.data.data;
+                imgData.shift();
+                $scope.imgs=imgData;
+            }else{
+            }
+        }
+    });
+
+
+ // 门店展示列表
+    var storePromise=$http({
+        url:baseUrl+'merchant/shop/stores',
+        method:'get',
+        params:{
+            merchant_id:merchant_id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    storePromise.then(function (res) {
+        if(res.data.error!=200){
+        }else{
+            var store= res.data.data;
+            if(store.length!=0){
+                $scope.store=res.data.data;
+                $scope.haveStore=false;
+            }else{
+                $scope.haveStore=true;
+            }
+        }
+    });
+
+
+    // 推荐获取
+    var recommendPromise=$http({
+        url:baseUrl+'merchant/shop/recommend',
+        method:'get',
+        params:{
+            shop_id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    recommendPromise.then(function (res) {
+        if(res.data.error!=200){
+        }else{
+            var recommend= res.data.data;
+            if(recommend.length!=0){
+                $scope.recommend=res.data.data;
+                $scope.haveRecommend=false;
+            }else{
+                $scope.haveRecommend=true;
+            }
+        }
     });
 
 
 //    评论列表
     var detailComment=$http({
-        url:baseUrl+'magor/five/comments',
+        url:baseUrl+'merchant/shop/commentlist',
         method:'get',
         params:{
-            id:id,
-            grand_id:2,
+            merchant_id:merchant_id,
+            shop_id:id,
             auth_name:'name',
             name:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
     });
     detailComment.then(function (res) {
+        console.log('comment is :',res)
         if(res.data.error!=200){
             //获取详情出错
         }else{
-            $scope.commentList=res.data.data
             if(res.data.data.length!=0){
-                $scope.havaData=false;
+                $scope.commentList=res.data.data;
+                $scope.havaComment=false;
                 $scope.maxSize = 5;
                 $scope.currentPage = 1;
                 $scope.totalItems = Number(res.data.data[0].total_count);
             }else{
-                $scope.havaData=true;
+                $scope.havaComment=true;
             }
         }
     });
+
 
 //    分页
     $scope.pageChangedDetail= function () {
@@ -495,7 +564,6 @@ myApp.controller('detailController',function ($scope,$http,$log) {
         })
     }
 });
-
 
 
 

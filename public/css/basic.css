@@ -787,7 +787,9 @@ ul>li{
     background:#f8f8f8;
     text-decoration: none;
 }
-
+.content-list:hover{
+    text-decoration:underline;
+}
 .img-box{
     width:248px;
     height:183px;
@@ -930,30 +932,35 @@ font-size: 14px;
     color: #fff;
     text-align: center;
     line-height:20px;
-    /*margin-right: 5px;*/
+    margin-right: 3px;
 }
 
 
 .s-share{
     background:#f1884e;
+    margin-right: 3px;
 }
 
 .s-game{
     background:#70bc46;
+    margin-right: 3px;
 }
 
 
 .s-benifit{
     background:#f07f73;
+    margin-right: 3px;
 }
 
 
 .s-quan{
     background: #00d1b2;
+    margin-right: 3px;
 }
 
 .s-zhuan{
     background: #f1884e;
+    margin-right: 3px;
 }
 /*服务类型的内容结束*/
 
@@ -1345,7 +1352,14 @@ font-size: 15px;
     overflow: hidden;
     border:1px solid #f3f3f3;
 }
-
+.detail-comment>h1{
+    font-size: 10pt;
+    color: #333;
+    margin: 20px auto;
+    text-align: center;
+    width: 50%;
+    font-weight: normal;
+}
 /*闲置二手评论开始*/
 .nocommenttips{
     font-weight: normal;
@@ -1385,7 +1399,7 @@ font-size: 15px;
     /*margin-top: 20px;*/
 }
 .d-c-top-left{
-    width:300px;
+    width:400px;
     height:54px;
     float: left;
 }
@@ -1398,7 +1412,7 @@ font-size: 15px;
 }
 
 .d-c-top-left-name{
-    width:150px;
+    width:250px;
     height:54px;
     float: left;
     margin-left: 10px;
@@ -1428,7 +1442,7 @@ font-size: 15px;
 }
 
 .d-c-down{
-    width:760px;
+    width:755px;
     height:auto;
     overflow: hidden;
     float: right;
@@ -1508,6 +1522,7 @@ font-size: 15px;
     font-size: 16px;
     color: #333;
     float: left;
+    margin: 0;
 }
 .detail-comment-first>span{
     float: right;
@@ -1694,10 +1709,18 @@ font-size: 14px;
 }
 
 .detail-right-body>h1{
-    font-size: 16px;
+     font-size: 16px;
+     color: #333;
+     font-weight:normal;
+     border-bottom: 1px solid #f3f3f3;
+     padding-bottom:10px;
+     margin: 10px 10px 0 10px;
+ }
+
+.detail-right-body>h2{
+    font-size: 14px;
     color: #333;
     font-weight:normal;
-    border-bottom: 1px solid #f3f3f3;
     padding-bottom:10px;
     margin: 10px 10px 0 10px;
 }
@@ -1941,7 +1964,7 @@ font-size: 15px;
     color: #333;
     width:760px;
     font-weight:normal;
-    margin-left: 10px;
+    margin:0 0 0 10px;
 }
 .s-d-h-activity-list-more{
     width:10px;
@@ -1969,7 +1992,10 @@ font-size: 15px;
 }
 
 .detail-info-item{
-    margin:20px 0 0 30px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin:10px 0 0 30px;
 }
 .detail-info-item-left{
     width:40px;
@@ -1996,6 +2022,7 @@ line-height: 25px;
     color:#ff5949;
     font-weight:normal;
     line-height:25px;
+    margin: 0;
 }
 
 .detail-info-right{
@@ -2048,6 +2075,13 @@ line-height: 25px;
     color: #333;
     font-weight:normal;
     border-bottom: 1px solid #f3f3f3;
+    padding-bottom:10px;
+    margin: 10px 8px 0 8px;
+}
+.detail-right-person-mendian>h2{
+    font-size: 14px;
+    color: #333;
+    font-weight:normal;
     padding-bottom:10px;
     margin: 10px 8px 0 8px;
 }
@@ -2119,7 +2153,7 @@ line-height: 25px;
     color:#7a7a7a;
     font-size: 12px;
     font-weight:normal;
-    margin-bottom: 13px;
+    margin:0 0  13px 0;
 }
 .detail-comment-name>h2>span{
     margin-left: 10px;

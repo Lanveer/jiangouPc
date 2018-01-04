@@ -103,7 +103,9 @@ myApp.directive('nav',function(){
 
 //获取列表数据
 myApp.controller('ListController',function ($scope,$http,$log) {
-
+    url = window.location.href;
+    re = getQueryString(url);
+    var cid= re.id;
     //基础数据获取
     var baseDataPromise= $http({
         url:baseUrl+'homepage/home/basedata',
@@ -113,20 +115,20 @@ myApp.controller('ListController',function ($scope,$http,$log) {
             id:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
-    })
+    });
     baseDataPromise.then(function (res) {
         if(res.data.error==200){
             $scope.usedCategory=res.data.data.category[2].child;
             $scope.usedLocation=res.data.data.filtercity;
             $scope.category=res.data.data.category;
         }
-    })
+    });
 
     //职位筛选开始
     $scope.Category = function (cate_id,idx) {
         var args={
             cate_id:cate_id
-        }
+        };
         loadListData(args);
         $('.condition-item-box-cat>a').css({
             background:'#fff',
@@ -328,7 +330,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
                 id:1,
                 city_id:city_id,
                 level:level,
-                cate_id:cate_id,
+                cate_id:cate_id==undefined?cid:cate_id,
                 type:type,
                 source:source,
                 search:search,

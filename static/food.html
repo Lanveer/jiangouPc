@@ -105,12 +105,12 @@
 
         <div id="content">
             <h1 ng-if="havaData">暂时没有相关的数据</h1>
-            <a href="" class="content-list service-list" ng-repeat="item in listData">
+            <a href="food-detail.html?id={{item.id}}" target="_blank" class="content-list service-list" ng-repeat="item in listData">
                 <div class="img-box">
                     <img src="{{item.image}}{{bigImg}}" alt="">
                 </div>
                 <div class="text-box service-box food-box">
-                    <h2 ng-bind="item.title||'默认餐厅'">吉布鲁海鲜自助</h2>
+                    <h2 ng-bind="item.title||'默认餐厅'"></h2>
                     <div class="food-icon">
                         <h3 ng-bind="item.category_title|| '美食' "></h3>
                         <span class="s-share" ng-repeat="tag in item.activity" ng-if="tag.type=='merchant' && tag.has_game!=1 && tag.has_gold==1 && tag.share_game==1">享</span>

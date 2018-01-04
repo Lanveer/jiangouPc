@@ -146,14 +146,11 @@
 
                     <div class="s-d-h-img">
                         <div class="s-d-h-img-left">
-                            <img src="../public/imgs/service/header.png" alt="">
+                            <img src="{{detailData.image}}{{bigImg}}" alt="">
                         </div>
 
                         <div class="s-d-h-img-right">
-                            <img src="../public/imgs/service/header-small.png" alt="">
-                            <img src="../public/imgs/service/header-small.png" alt="">
-                            <img src="../public/imgs/service/header-small.png" alt="">
-                            <img src="../public/imgs/service/header-small.png" alt="">
+                            <img ng-repeat="img in imgs"  src="{{img.image}}{{bigImg}}" alt="">
                         </div>
                     </div>
 
@@ -190,21 +187,21 @@
                         <div class="detail-info-item">
                             <div class="detail-info-item-left">电话:</div>
                             <div class="detail-info-item-right">
-                                <h2 class="detail-info-item-right-tel">23423543545</h2>
+                                <h2 class="detail-info-item-right-tel" ng-bind="detailData.tel"></h2>
                             </div>
                         </div>
 
                         <div class="detail-info-item">
                             <div class="detail-info-item-left">地址:</div>
                             <div class="detail-info-item-right">
-                               <p>真正美丽的生命执著地追求着真善，它不会趋炎附势地扭曲自己的形象</p>
+                               <p ng-bind="detailData.address"></p>
                             </div>
                         </div>
 
                         <div class="detail-info-item">
                             <div class="detail-info-item-left">路线:</div>
                             <div class="detail-info-item-right">
-                                <p>真正美丽的生命执著地追求着真善，它不会趋炎附势地扭曲自己的形象</p>
+                                <p ng-bind="detailData.bus"></p>
                             </div>
                         </div>
                     </div>
@@ -218,17 +215,53 @@
                 <!--评论区域开始-->
                 <div class="detail-comment">
                     <div class="detail-comment-first">
-                        <h1>顾客评论 （12）</h1>
+                        <h1 ng-bind="'顾客评论' +'('+totalItems +')'"></h1>
                         <span>安装简购生活App,参与对商家的评论</span>
-                        </div>
-                    <div class="detail-comment-list">
+                    </div>
+                    <h1 ng-show="havaComment">暂时没有评论</h1>
+                    <div class="detail-comment-list" ng-repeat="citem in commentList">
                         <div class="detail-comment-header">
                             <div class="detail-comment-avatar">
-                                <img src="../public/imgs/service/avatar.png" alt="">
+                                <img src="{{citem.user_header}}" alt="">
                             </div>
                             <div class="detail-comment-name">
-                                <h2>挥剑天下 <span>2017-12-12</span> </h2>
-                                <ul>
+                                <h2>{{citem.user_nickname}} <span>{{citem.create_time}}</span> </h2>
+                                <ul ng-if="0<citem.score<1.0">
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="citem.score<2.0 && citem.score>=1.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="citem.score<3.0 && citem.score>=2.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="citem.score<4.0 && citem.score>=3.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="citem.score<5.0 && citem.score>=4.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="citem.score==5">
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
@@ -239,75 +272,21 @@
                         </div>
 
                         <div class="detail-comment-body">
-                            <p>
-                                离别的那日，夕阳残照，如血嫣红。漠然回望，我宿命的悬崖边，是一座枯萎的空城，城墙上长满荒草，如一滴凄清的泪，悬挂在宿命的指尖。曾经祥和的幸福美满，如今在面前，已经碎裂成云烟。天空退却了亘久的蔚蓝，星辰开始渐次陨落。那一年，繁华落尽，满目尽是凄凉的荒芜。也许，我这一生，注定要以孤单来承兑对你的所有幻想
-                            </p>
+                            <p ng-bind="citem.comments"></p>
 
 
-                             <div class="detail-comment-img">
-                                 <img src="../public/imgs/service/comment.png" alt="">
-                                 <img src="../public/imgs/service/comment.png" alt="">
-                                 <img src="../public/imgs/service/comment.png" alt="">
-                                 <img src="../public/imgs/service/comment.png" alt="">
+                             <div class="detail-comment-img" ng-if="citem.imgs.length!=0">
+                                 <img src="{{cimg.image}}{{bigImg}}" ng-repeat="cimg in citem.imgs" alt="">
                              </div>
                         </div>
                     </div>
-                    <div class="detail-comment-list">
-                        <div class="detail-comment-header">
-                            <div class="detail-comment-avatar">
-                                <img src="../public/imgs/service/avatar.png" alt="">
-                            </div>
-                            <div class="detail-comment-name">
-                                <h2>挥剑天下 <span>2017-12-12</span> </h2>
-                                <ul>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="detail-comment-body">
-                            <p>
-                                离别的那日，夕阳残照，如血嫣红。漠然回望，我宿命的悬崖边，是一座枯萎的空城，城墙上长满荒草，如一滴凄清的泪，悬挂在宿命的指尖。曾经祥和的幸福美满，如今在面前，已经碎裂成云烟。天空退却了亘久的蔚蓝，星辰开始渐次陨落。那一年，繁华落尽，满目尽是凄凉的荒芜。也许，我这一生，注定要以孤单来承兑对你的所有幻想
-                            </p>
-
-
-                            <div class="detail-comment-img">
-                                <img src="../public/imgs/service/comment.png" alt="">
-                                <img src="../public/imgs/service/comment.png" alt="">
-                                <img src="../public/imgs/service/comment.png" alt="">
-                                <img src="../public/imgs/service/comment.png" alt="">
-                            </div>
+                    <!--分页开始-->
+                    <div class="page-wrap" style="width: 780px;float: right;margin: 15px 20px 15px 0;" ng-show="!havaData">
+                        <div class="pagenition">
+                            <uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" first-text="第一页" previous-text="上一页" next-text="下一页" last-text="尾页" boundary-links="true" boundary-link-numbers="true" items-per-page="20" ng-change="pageChangedDetail()"></uib-pagination>
                         </div>
                     </div>
-                    <div class="detail-comment-list">
-                    <div class="detail-comment-header">
-                        <div class="detail-comment-avatar">
-                            <img src="../public/imgs/service/avatar.png" alt="">
-                        </div>
-                        <div class="detail-comment-name">
-                            <h2>挥剑天下 <span>2017-12-12</span> </h2>
-                            <ul>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="detail-comment-body">
-                        <p>
-                            离别的那日，夕阳残照，如血嫣红。漠然回望，我宿命的悬崖边，是一座枯萎的空城，城墙上长满荒草，如一滴凄清的泪，悬挂在宿命的指尖。曾经祥和的幸福美满，如今在面前，已经碎裂成云烟。天空退却了亘久的蔚蓝，星辰开始渐次陨落。那一年，繁华落尽，满目尽是凄凉的荒芜。也许，我这一生，注定要以孤单来承兑对你的所有幻想
-                        </p>
-
-                    </div>
-                </div>
-
+                    <!--分页结束-->
                 </div>
                 <!--评论区域结束-->
 
@@ -323,39 +302,20 @@
             <div class="detail-right">
                 <div class="detail-right-header">
                     <div class="detail-right-person detail-right-person-service">
-                        <img src="../public/imgs/used/avatar.png" alt="">
-                        <h1>干锅鸡有限公司</h1>
+                        <img src="{{person.header}}" alt="">
+                        <h1 ng-bind="person.contact"></h1>
                         <h2>注册于2017-01-12</h2>
                     </div>
                     <div class="detail-right-person-mendian">
                         <h1>旗下门店</h1>
-                        <a href="" class="detail-right-body-list">
+                        <h2 ng-show="haveStore">暂无门店信息</h2>
+                        <a href="service-detail.html?id={{sitem.shop_id}}&merchant_id={{}}" target="_blank" class="detail-right-body-list" ng-repeat="sitem in store">
                             <div class="detail-right-body-list-left">
-                                <img src="../public/imgs/used/tuijian.png" alt="">
+                                <img src="{{sitem.imgs[0].image}}{{bigImg}}" alt="">
                             </div>
                             <div class="detail-right-body-list-right">
-                                <h1>宾夕法尼亚酒店</h1>
-                                <h2>Hotel Pensivaliya New....</h2>
-                                <span><span>电话</span> : + 12982842374</span>
-                            </div>
-                        </a>
-                        <a href="" class="detail-right-body-list">
-                            <div class="detail-right-body-list-left">
-                                <img src="../public/imgs/used/tuijian.png" alt="">
-                            </div>
-                            <div class="detail-right-body-list-right">
-                                <h1>宾夕法尼亚酒店</h1>
-                                <h2>Hotel Pensivaliya New....</h2>
-                                <span><span>电话</span> : + 12982842374</span>
-                            </div>
-                        </a>
-                        <a href="" class="detail-right-body-list">
-                            <div class="detail-right-body-list-left">
-                                <img src="../public/imgs/used/tuijian.png" alt="">
-                            </div>
-                            <div class="detail-right-body-list-right">
-                                <h1>宾夕法尼亚酒店</h1>
-                                <h2>Hotel Pensivaliya New....</h2>
+                                <h1 ng-bind="sitem.zh_name.length>10?sitem.zh_name.substring(0,10)+'..': sitem.zh_name"></h1>
+                                <h2 ng-bind="sitem.address.length>13?sitem.address.substring(0,10)+'..':sitem.address"></h2>
                                 <span><span>电话</span> : + 12982842374</span>
                             </div>
                         </a>
@@ -365,37 +325,16 @@
 
                 <div class="detail-right-body">
                     <h1>精选推荐</h1>
-                    <a href="" class="detail-right-body-list">
+                    <h2 ng-show="haveRecommend">暂无推荐信息</h2>
+                    <a href="service-detail.html?id={{sitem.id}}" target="_blank" class="detail-right-body-list" ng-repeat="ritem in recommend">
                         <div class="detail-right-body-list-left">
-                            <img src="../public/imgs/used/tuijian.png" alt="">
+                            <img src="{{ritem.image}}{{bigImg}}" alt="">
                         </div>
                         <div class="detail-right-body-list-right detail-right-body-list-right-service">
-                            <h1>宾夕法尼亚酒店</h1>
-                            <h2>Hotel Pensivaliya New....</h2>
-                            <span>律师法务</span>
-                            <div class="detail-right-body-list-right-serviceTag">营业中</div>
-                        </div>
-                    </a>
-                    <a href="" class="detail-right-body-list">
-                        <div class="detail-right-body-list-left">
-                            <img src="../public/imgs/used/tuijian.png" alt="">
-                        </div>
-                        <div class="detail-right-body-list-right detail-right-body-list-right-service">
-                            <h1>宾夕法尼亚酒店</h1>
-                            <h2>Hotel Pensivaliya New....</h2>
-                            <span>律师法务</span>
-                            <div class="detail-right-body-list-right-serviceTag">营业中</div>
-                        </div>
-                    </a>
-                    <a href="" class="detail-right-body-list">
-                        <div class="detail-right-body-list-left">
-                            <img src="../public/imgs/used/tuijian.png" alt="">
-                        </div>
-                        <div class="detail-right-body-list-right detail-right-body-list-right-service">
-                            <h1>宾夕法尼亚酒店</h1>
-                            <h2>Hotel Pensivaliya New....</h2>
-                            <span>律师法务</span>
-                            <div class="detail-right-body-list-right-serviceTag">营业中</div>
+                            <h1 ng-bind="ritem.zh_name"></h1>
+                            <h2 ng-bind="ritem.zh_name"></h2>
+                            <span ng-bind="ritem.cate_title"></span>
+                            <!--<div class="detail-right-body-list-right-serviceTag">营业中</div>-->
                         </div>
                     </a>
                 </div>

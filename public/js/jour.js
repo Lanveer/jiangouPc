@@ -111,6 +111,10 @@ myApp.directive('nav',function(){
 
 //获取列表数据
 myApp.controller('ListController',function ($scope,$http,$log) {
+
+    url = window.location.href;
+    re = getQueryString(url);
+    var pid= re.pid;
     //基础数据获取
     var baseDataPromise= $http({
         url:baseUrl+'homepage/home/basedata',
@@ -284,8 +288,8 @@ myApp.controller('ListController',function ($scope,$http,$log) {
                 grand_id:8,
                 auth_name:'id',
                 id:1,
-                category_parent:category_parent,
-                category_child:category_child,
+                category_parent:category_parent==undefined?pid:category_parent,
+                category_child:category_child==undefined?0:category_child,
                 type:type,
                 isOpen:isOpen,
                 search:search,

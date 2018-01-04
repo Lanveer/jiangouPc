@@ -103,7 +103,9 @@ myApp.directive('nav',function(){
 
 //获取列表数据
 myApp.controller('ListController',function ($scope,$http,$log) {
-
+    url = window.location.href;
+    re = getQueryString(url);
+    var cid= re.id;
     //基础数据获取
     var baseDataPromise= $http({
         url:baseUrl+'homepage/home/basedata',
@@ -294,7 +296,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
                 id:1,
                 city_id:city_id,
                 level:level,
-                cate_id:cate_id,
+                cate_id:cate_id==undefined?cid:cate_id,
                 type:type,
                 source:source,
                 search:search,

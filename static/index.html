@@ -21,12 +21,11 @@
 </head>
 <body>
 
-<div id="con">
+<div id="con" ng-controller="indexController">
 
         <!--top开始-->
             <top></top>
         <!--top结束-->
-
 
     <div id="search">
         <div class="logo">
@@ -35,25 +34,21 @@
 
         <div class="search-box">
             <div class="key">
-                <span>闲置二手</span>
+                <span ng-bind="category[0].title"></span>
                 <div class="key-list">
-                    <a href="">新旧车辆</a>
-                    <a href="">新旧车辆</a>
-                    <a href="">新旧车辆</a>
-                    <a href="">新旧车辆</a>
-                    <a href="">新旧车辆</a>
-                    <a href="">新旧车辆</a>
-                    <a href="">新旧车辆</a>
-                    <a href="">新旧车辆</a>
+                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
                 </div>
             </div>
+
             <div class="search-input">
                 <span></span>
-                <input type="text" placeholder="请输入关键字进行搜索">
+                <input type="text" placeholder="请输入关键字进行搜索" ng-model="kwd" ng-blur="search(kwd)">
+                <div class="search-list" ng-if="searchListFlag">
+                    <a href="" ng-repeat="searchList in searchListData" ng-bind="searchList.title" ng-click="searchDetail(searchList.title)"></a>
+                </div>
             </div>
 
-
-            <div class="search-btn">
+            <div class="search-btn" ng-click="searchResult(kwd)">
                 搜索
             </div>
         </div>
@@ -73,91 +68,22 @@
 
         <div class="nav-list index-nav-list">
             <ul>
-                <li>
-                    <a href="">闲置二手
+                <li ng-repeat="list in category" ng-click="change($index)">
+                    <a href="" >{{list.title}}
                         <span class="nav-arrow"></span>
-                        <span>手机</span>
-                        <span>电脑</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">新旧车辆
-                        <span class="nav-arrow"></span>
-                        <span>手机</span>
-                        <span>电脑</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">房屋租赁
-                        <span class="nav-arrow"></span>
-                        <span>手机</span>
-                        <span>电脑</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">工作招聘
-                        <span class="nav-arrow"></span>
-                        <span>手机</span>
-                        <span>电脑</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="">商家服务
-                        <span class="nav-arrow"></span>
-                        <span>手机</span>
-                        <span>电脑</span>
+                        <span ng-bind="list.child[1].title.length>4?list.child[1].title.substring(0,4)+'..':list.child[1].title"></span>
+                        <span ng-bind="list.child[2].title.length>4?list.child[2].title.substring(0,4)+'..':list.child[2].title"></span>
                     </a>
                 </li>
             </ul>
             <div class="nav-detail index-nav-detail">
-                <div class="index-sec  sec-a" style="display: none;">
+                <div class="sec-item sec-a" ng-repeat="navList in category">
                     <div class="sec-header">
-                        <h1>闲置二手</h1>
+                        <h1 ng-bind="navList.title"></h1>
                         <span>更多</span>
                     </div>
                     <div class="sec-body">
-                        <a href="">手机电脑</a>
-                        <a href="">家用电器</a>
-                    </div>
-                </div>
-                <div class="index-sec  sec-a">
-                    <div class="sec-header">
-                        <h1>新旧车辆</h1>
-                        <span>更多</span>
-                    </div>
-                    <div class="sec-body">
-                        <a href="">手机电脑</a>
-                        <a href="">家用电器</a>
-                    </div>
-                </div>
-                <div class="index-sec  sec-a">
-                    <div class="sec-header">
-                        <h1>房屋租赁</h1>
-                        <span>更多</span>
-                    </div>
-                    <div class="sec-body">
-                        <a href="">手机电脑</a>
-                        <a href="">家用电器</a>
-                    </div>
-                </div>
-                <div class="index-sec  sec-a">
-                    <div class="sec-header">
-                        <h1>工作招聘</h1>
-                        <span>更多</span>
-                    </div>
-                    <div class="sec-body">
-                        <a href="">手机电脑</a>
-                        <a href="">家用电器</a>
-                    </div>
-                </div>
-                <div class="index-sec  sec-a">
-                    <div class="sec-header">
-                        <h1>商家服务</h1>
-                        <span>更多</span>
-                    </div>
-                    <div class="sec-body">
-                        <a href="">手机电脑</a>
-                        <a href="">家用电器</a>
+                        <a href="" ng-repeat="s_navList in navList.child" ng-bind="s_navList.title"></a>
                     </div>
                 </div>
             </div>
@@ -165,8 +91,6 @@
 
 
         <div class="banner">
-            <!--<img src="../public/imgs/index/banner.png" alt="">-->
-
             <div ng-controller="CarouselDemoCtrl" class="banner-firstDiv">
                     <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                         <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
@@ -217,59 +141,20 @@
             <div class="section-header">
                 <h1>闲置二手</h1>
                 <div class="section-nav">
-                    <a href="">手机电脑</a>
-                    <a href="">家用电器</a>
-                    <a href="">母婴儿童</a>
-                    <a href="">美颜护肤</a>
-                    <a href="">服装鞋帽</a>
-                    <a href="">家具家私</a>
-                    <a href="">全部</a>
+                    <a href="used.html?id={{usedNavItem.id}}" target="_blank" ng-repeat="usedNavItem in baseData.category[0].child" ng-bind="usedNavItem.title"></a>
                 </div>
             </div>
             <div class="warp">
-                <a href="" class="content-list">
+                <a href="used-detail.html?id={{uitem.id}}" target="_blank" class="content-list" ng-repeat="uitem in usedData track by uitem.id">
                     <div class="img-box">
-                        <img src="../public/imgs/used/list.png" alt="">
+                        <img src="{{uitem.image}}{{bigImg}}" alt="">
                     </div>
                     <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
+                        <h3 ng-bind="uitem.title.length>16?uitem.title.substring(0,16):uitem.title"></h3>
+                        <h2 ng-if="uitem.price!='0.00'" ng-bind="'$'+ uitem.price"></h2>
+                        <h2 ng-if="uitem.price=='0.00'" ng-bind="'电议'"></h2>
+                        <h4 ng-bind="uitem.address.length>12?uitem.address.substring(0,12)+'..':uitem.address"></h4>
                     </div>
-
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/used/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/used/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/used/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-
                 </a>
             </div>
         </div>
@@ -281,55 +166,21 @@
             <div class="section-header car_header">
                 <h1>新旧车辆</h1>
                 <div class="section-nav">
-                    <a href="">大众Volkswagen</a>
-                    <a href="">奔驰 Mecedes Benze</a>
-                    <a href="">丰田 Toyota</a>
-                    <a href="">大众Volkswagen</a>
-                    <a href="">全部</a>
+                    <a href="cars.html?id={{carNavItem.id}}" target="_blank" ng-repeat="carNavItem in carNav" ng-bind="carNavItem.title"></a>
                 </div>
             </div>
             <div class="warp" style=" border: none;">
-                <a href="" class="content-list">
+                <a href="cars-detail.html?id={{citem.id}}" target="_blank" class="content-list" ng-repeat="citem in carData track by citem.id">
                     <div class="img-box">
-                        <img src="../public/imgs/car/list.png" alt="">
+                        <img src="{{citem.image}}{{bigImg}}" alt="">
                     </div>
                     <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
+                        <h3 ng-bind="citem.title.length>16?citem.title.substring(0,16):citem.title"></h3>
+                        <h2 ng-if="citem.price!='0.00'" ng-bind="'$'+ citem.price"></h2>
+                        <h2 ng-if="citem.price=='0.00'" ng-bind="'电议'"></h2>
+                        <h4 ng-bind="citem.address.length>12?citem.address.substring(0,12)+'..':citem.address"></h4>
                     </div>
                 </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/car/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/car/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/car/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-                </a>
-
             </div>
         </div>
         <!--新旧车辆模块结束-->
@@ -340,54 +191,19 @@
             <div class="section-header car_header">
                 <h1>房屋租赁</h1>
                 <div class="section-nav">
-                    <a href="">整租</a>
-                    <a href="">日租</a>
-                    <a href="">单间</a>
-                    <a href="">办公</a>
-                    <a href="">车位</a>
-                    <a href="">其他</a>
-                    <a href="">全部</a>
+                    <a href="house.html?id={{houseNavItem.id}}" target="_blank" ng-repeat="houseNavItem in houseNav" ng-bind="houseNavItem.title"></a>
                 </div>
             </div>
             <div class="warp" style=" border: none;">
-                <a href="" class="content-list">
+                <a href="house-detail.html?id={{hitem.id}}" target="_blank" class="content-list" ng-repeat="hitem in houseData track by hitem.id">
                     <div class="img-box">
-                        <img src="../public/imgs/house/list.png" alt="">
+                        <img src="{{hitem.image}}{{bigImg}}" alt="">
                     </div>
                     <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/house/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/house/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
-                    </div>
-                </a>
-                <a href="" class="content-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/house/list.png" alt="">
-                    </div>
-                    <div class="text-box">
-                        <h3>宜家单人小木床 120刀出售欢迎来看</h3>
-                        <h2>$140</h2>
-                        <h4>NY 纽约 皇后区</h4>
+                        <h3 ng-bind="hitem.title.length>16?hitem.title.substring(0,16):hitem.title"></h3>
+                        <h2 ng-if="hitem.price!='0.00'" ng-bind="'$'+ hitem.price"></h2>
+                        <h2 ng-if="hitem.price=='0.00'" ng-bind="'电议'"></h2>
+                        <h4 ng-bind="hitem.address.length>12?hitem.address.substring(0,12)+'..':hitem.address"></h4>
                     </div>
                 </a>
             </div>
@@ -400,44 +216,14 @@
             <div class="section-header job_header">
                 <h1>工作招聘</h1>
                 <div class="section-nav">
-                    <a href="">销售</a>
-                    <a href="">服务员</a>
-                    <a href="">会计</a>
-                    <a href="">律师</a>
-                    <a href="">司机</a>
-                    <a href="">全部</a>
+                    <a href="job.html?id={{jobNavItem.id}}" target="_blank" ng-repeat="jobNavItem in jobNav" ng-bind="jobNavItem.title"></a>
                 </div>
             </div>
             <div class="warp" style="border-top: none">
-                <a href="" class="job">
-                    <span>[纽约 布鲁克林]</span>
-                    <h2>富士康招聘中国技术人员</h2>
-                    <h5>05-25</h5>
-                </a>
-                <a href="" class="job">
-                    <span>[纽约 布鲁克林]</span>
-                    <h2>富士康招聘中国技术人员</h2>
-                    <h5>05-25</h5>
-                </a>
-                <a href="" class="job">
-                    <span>[纽约 布鲁克林]</span>
-                    <h2>富士康招聘中国技术人员</h2>
-                    <h5>05-25</h5>
-                </a>
-                <a href="" class="job">
-                    <span>[纽约 布鲁克林]</span>
-                    <h2>富士康招聘中国技术人员</h2>
-                    <h5>05-25</h5>
-                </a>
-                <a href="" class="job">
-                    <span>[纽约 布鲁克林]</span>
-                    <h2>富士康招聘中国技术人员</h2>
-                    <h5>05-25</h5>
-                </a>
-                <a href="" class="job">
-                    <span>[纽约 布鲁克林]</span>
-                    <h2>富士康招聘中国技术人员</h2>
-                    <h5>05-25</h5>
+                <a href="job-detail.html?id={{jitem.id}}" class="job" ng-repeat="jitem in jobData track by jitem.id" target="_blank">
+                    <span ng-bind=" '['+jitem.address+']' "></span>
+                    <h2 ng-bind="jitem.title"></h2>
+                    <h5 ng-bind="jitem.create_time"></h5>
                 </a>
             </div>
         </div>
@@ -449,127 +235,72 @@
             <div class="section-header service_header">
                 <h1>商家服务</h1>
                 <div class="section-nav">
-                    <a href="">律师法务</a>
-                    <a href="">搬家服务</a>
-                    <a href="">家政保姆</a>
-                    <a href="">代缴罚单</a>
-                    <a href="">洗车服务</a>
-                    <a href="">全部</a>
+                    <a href="service.html?pid={{serviceNavItem.id}}" target="_blank" ng-repeat="serviceNavItem in serviceNav" ng-bind="serviceNavItem.title"></a>
                 </div>
             </div>
             <div class="warp" style=" border: none;">
-                <a href="" class="content-list service-list">
+                <a href="service-detail.html?id={{sitem.shop_id}}" class="content-list service-list" target="_blank" ng-repeat="sitem in serviceData">
                     <div class="img-box">
-                        <img src="../public/imgs/service/list.png" alt="">
+                        <img src="{{sitem.image}}{{bigImg}}" alt="">
                     </div>
                     <div class="text-box service-box">
-                        <h2>吉布鲁海鲜自助</h2>
+                        <h2 ng-bind="sitem.zh_name"></h2>
                         <div class="service-info">
-                            <ul>
+                            <ul ng-if="0<sitem.score<1.0">
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                            </ul>
+                            <ul ng-if="sitem.score<2.0 && sitem.score>=1.0">
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                            </ul>
+                            <ul ng-if="sitem.score<3.0 && sitem.score>=2.0">
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                            </ul>
+                            <ul ng-if="sitem.score<4.0 && sitem.score>=3.0">
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                            </ul>
+                            <ul ng-if="sitem.score<5.0 && sitem.score>=4.0">
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                            </ul>
+                            <ul ng-if="sitem.score==5">
                                 <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                 <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                 <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                 <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                 <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                             </ul>
-                            <span>5.0分</span>
-                            <span>评论 100 条</span>
+                            <span ng-bind="sitem.score+'分'"></span>
+                            <span ng-bind="'评论'+ sitem.comments+'条'"></span>
                         </div>
                         <div class="service-status">
-                            <span>每周美食</span>
+                            <span ng-bind="sitem.cate_title"></span>
                             <div class="st">营业中</div>
                         </div>
-                        <div class="service-tags">
-                            <span class="s-share">分享</span>
-                            <span class="s-game">游戏</span>
-                            <span class="s-benifit">优惠</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/service/list.png" alt="">
-                    </div>
-                    <div class="text-box service-box">
-                        <h2>吉布鲁海鲜自助</h2>
-                        <div class="service-info">
-                            <ul>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                            </ul>
-                            <span>5.0分</span>
-                            <span>评论 100 条</span>
-                        </div>
-                        <div class="service-status">
-                            <span>每周美食</span>
-                            <div class="st">营业中</div>
-                        </div>
-
-                        <div class="service-tags">
-                            <span class="s-share">分享</span>
-                            <span class="s-game">游戏</span>
-                            <span class="s-benifit">优惠</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/service/list.png" alt="">
-                    </div>
-                    <div class="text-box service-box">
-                        <h2>吉布鲁海鲜自助</h2>
-                        <div class="service-info">
-                            <ul>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                            </ul>
-                            <span>5.0分</span>
-                            <span>评论 100 条</span>
-                        </div>
-                        <div class="service-status">
-                            <span>每周美食</span>
-                            <div class="st">营业中</div>
-                        </div>
-
-                        <div class="service-tags">
-                            <span class="s-share">分享</span>
-                            <span class="s-game">游戏</span>
-                            <span class="s-benifit">优惠</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/service/list.png" alt="">
-                    </div>
-                    <div class="text-box service-box">
-                        <h2>吉布鲁海鲜自助</h2>
-                        <div class="service-info">
-                            <ul>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                            </ul>
-                            <span>5.0分</span>
-                            <span>评论 100 条</span>
-                        </div>
-                        <div class="service-status">
-                            <span>每周美食</span>
-                            <div class="st">营业中</div>
-                        </div>
-
-                        <div class="service-tags">
-                            <span class="s-share">分享</span>
-                            <span class="s-game">游戏</span>
-                            <span class="s-benifit">优惠</span>
+                        <div class="service-tags" ng-if!="sitem.activity=='' ||sitem.activity.length==0">
+                            <span class="s-share" ng-repeat="tag in sitem.activity" ng-if="tag.type=='merchant' && tag.has_game!=1 && tag.has_gold==1 && tag.share_game==1">分享</span>
+                            <span class="s-game" ng-repeat="tag1 in sitem.activity" ng-if="tag1.type=='merchant' && tag1.has_game==1">玩</span>
+                            <span class="s-benifit" ng-repeat="tag2 in sitem.activity"  ng-if="tag2.type=='shop' && tag2.verify==0">惠</span>
+                            <span class="s-quan" ng-repeat="tag2 in sitem.activity"  ng-if="tag2.type=='shop' && tag2.verify==1">券</span>
+                            <span class="s-zhuan" ng-repeat="tag2 in sitem.activity"  ng-if="tag2.type=='merchant' && tag2.has_gold==1">赚</span>
                         </div>
                     </div>
                 </a>
@@ -582,115 +313,70 @@
             <div class="section-header food_header">
                 <h1>美食餐饮</h1>
                 <div class="section-nav">
-                    <a href="">中国美食</a>
-                    <a href="">西式快餐</a>
-                    <a href="">美洲美食</a>
-                    <a href="">面包西点</a>
-                    <a href="">休闲餐饮</a>
-                    <a href="">地中海美食</a>
-                    <a href="">全部</a>
+                    <a href="food.html?id={{foodNavItem.id}}" target="_blank" ng-repeat="foodNavItem in foodNav" ng-bind="foodNavItem.title"></a>
                 </div>
             </div>
             <div class="warp" style=" border: none;">
-                <a href="" class="content-list service-list">
+                <a href="food-detail.html?id={{fitem.shop_id}}" class="content-list service-list" target="_blank" ng-repeat="fitem in foodData">
                     <div class="img-box">
-                        <img src="../public/imgs/food/list-a.png" alt="">
+                        <img src="{{fitem.image}}{{bigImg}}" alt="">
                     </div>
                     <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
+                        <h2 ng-bind="fitem.title"></h2>
                         <div class="food-icon">
-                            <h3>美洲美味  美味风味</h3>
-                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
+                            <h3 ng-bind="fitem.category_title==''?'暂时没有':fitem.category_title"></h3>
+                            <span class="s-share" ng-repeat="tag in fitem.activity" ng-if="tag.type=='merchant' && tag.has_game!=1 && tag.has_gold==1 && tag.share_game==1">分享</span>
+                            <span class="s-game" ng-repeat="tag1 in fitem.activity" ng-if="tag1.type=='merchant' && tag1.has_game==1">玩</span>
+                            <span class="s-benifit" ng-repeat="tag2 in fitem.activity"  ng-if="tag2.type=='shop' && tag2.verify==0">惠</span>
+                            <span class="s-quan" ng-repeat="tag2 in fitem.activity"  ng-if="tag2.type=='shop' && tag2.verify==1">券</span>
+                            <span class="s-zhuan" ng-repeat="tag2 in fitem.activity"  ng-if="tag2.type=='merchant' && tag2.has_gold==1">赚</span>
                         </div>
                         <div class="food-score">
-                            <h2>$15/人</h2>
+                            <h2 ng-bind="'$'+fitem.price+'/人'"></h2>
                             <div class="f-s">
-                                <ul>
+                                <ul ng-if="0<fitem.star<1.0">
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="fitem.star<2.0 && fitem.star>=1.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="fitem.star<3.0 && fitem.star>=2.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="fitem.star<4.0 && fitem.star>=3.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="fitem.star<5.0 && fitem.star>=4.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="fitem.star==5">
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                 </ul>
-                                <span>5.0分</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/food/list-b.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
-
-                        <div class="food-icon">
-                            <h3>美洲美味  美味风味</h3>
-                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
-                        </div>
-                        <div class="food-score">
-                            <h2>$15/人</h2>
-                            <div class="f-s">
-                                <ul>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                </ul>
-                                <span>5.0分</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/food/list-c.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
-
-                        <div class="food-icon">
-                            <h3>美洲美味  美味风味</h3>
-                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
-                        </div>
-                        <div class="food-score">
-                            <h2>$15/人</h2>
-                            <div class="f-s">
-                                <ul>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                </ul>
-                                <span>5.0分</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/food/list-d.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
-
-                        <div class="food-icon">
-                            <h3>美洲美味  美味风味</h3>
-                            <span><img src="../public/imgs/food/icon.png" alt=""></span>
-                        </div>
-                        <div class="food-score">
-                            <h2>$15/人</h2>
-                            <div class="f-s">
-                                <ul>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                </ul>
-                                <span>5.0分</span>
+                                <span ng-bind="fitem.star+'分'"></span>
                             </div>
                         </div>
                     </div>
@@ -704,108 +390,65 @@
             <div class="section-header jour_header">
                 <h1>周边景点</h1>
                 <div class="section-nav">
-                    <a href="">纽约市</a>
-                    <a href="">洛杉矶</a>
-                    <a href="">旧金山</a>
-                    <a href="">芝加哥</a>
-                    <a href="">华盛顿DC</a>
-                    <a href="">西雅图</a>
-                    <a href="">全部</a>
+                    <a href="jour.html?pid={{travelNavItem.id}}" target="_blank" ng-repeat="travelNavItem in travelNav" ng-bind="travelNavItem.title"></a>
                 </div>
             </div>
             <div class="warp">
-                <a href="" class="content-list service-list">
+                <a href="jour-detail.html?id={{jitem.id}}" target="_blank" ng-repeat="jitem in travelData"  class="content-list service-list" >
                     <div class="img-box">
-                        <img src="../public/imgs/jour/list-a.png" alt="">
+                        <img src="{{jitem.image}}{{bigImg}}" alt="">
                     </div>
                     <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
+                        <h2 ng-bind="jitem.title"></h2>
                         <div class="food-icon">
-                            <h3>游玩时长： 1-2个小时</h3>
+                            <h3 ng-bind="'游玩时长:'+jitem.playtime"></h3>
                         </div>
                         <div class="food-score">
-                            <h2>$15/人</h2>
+                            <h2 ng-bind="'$'+jitem.price+'/人'"></h2>
                             <div class="f-s">
-                                <ul>
+                                <ul ng-if="0<jitem.star<1.0">
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="jitem.star<2.0 && jitem.star>=1.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="jitem.star<3.0 && jitem.star>=2.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="jitem.star<4.0 && jitem.star>=3.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="jitem.star<5.0 && jitem.star>=4.0">
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
+                                    <li><img src="../public/imgs/service/starl_gray.png" alt=""></li>
+                                </ul>
+                                <ul ng-if="jitem.star==5">
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                     <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
                                 </ul>
-                                <span>5.0分</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/jour/list-b.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>游玩时长： 1-2个小时</h3>
-                        </div>
-                        <div class="food-score">
-                            <h2>$15/人</h2>
-                            <div class="f-s">
-                                <ul>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                </ul>
-                                <span>5.0分</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/jour/list-c.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>游玩时长： 1-2个小时</h3>
-                        </div>
-                        <div class="food-score">
-                            <h2>$15/人</h2>
-                            <div class="f-s">
-                                <ul>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                </ul>
-                                <span>5.0分</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/jour/list-d.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>游玩时长： 1-2个小时</h3>
-                        </div>
-                        <div class="food-score">
-                            <h2>$15/人</h2>
-                            <div class="f-s">
-                                <ul>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                    <li><img src="../public/imgs/service/starl_one.png" alt=""></li>
-                                </ul>
-                                <span>5.0分</span>
+                                <span ng-bind="jitem.star+'分'"></span>
                             </div>
                         </div>
                     </div>
@@ -819,188 +462,28 @@
             <div class="section-header benifit_header">
                 <h1>优惠折扣</h1>
                 <div class="section-nav">
-                    <a href="">美食</a>
-                    <a href="">购物</a>
-                    <a href="">景点</a>
-                    <a href="">酒店</a>
-                    <a href="">服务</a>
-                    <a href="">娱乐</a>
-                    <a href="">全部</a>
+                    <a href="benifit.html?pid={{beniftNavItem.id}}" target="_blank" ng-repeat="beniftNavItem in beniftlNav" ng-bind="beniftNavItem.title"></a>
                 </div>
             </div>
             <div class="warp">
-                <a href="" class="content-list service-list">
+                <a href="benifit-detail.html?id={{bitem.privilege_id}}" class="content-list service-list" target="_blank" ng-repeat="bitem in benifitData">
                     <div class="img-box">
-                        <img src="../public/imgs/benifit/list-a.png" alt="">
+                        <img src="{{bitem.image}}{{bigImg}}" alt="">
                     </div>
                     <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
+                        <h2 ng-bind="bitem.title"></h2>
                         <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
+                            <h3 ng-bind="bitem.cate_title=='' ? '暂时没有' : bitem.cate_title"></h3>
                         </div>
                         <div class="food-score">
                             <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
+                                <span class="s-t" ng-bind="bitem.cate_title.length>4?bitem.cate_title.substring(0,4)+'..': bitem.cate_title"></span>
+                                <span class="s-game" ng-if="bitem.recommend!==0">推荐</span>
+                                <span class="s-share" ng-if="bitem.verify!==0">验证</span>
                             </div>
 
                             <div class="f-s">
-                                <span>浏览量：33</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/benifit/list-b.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
-                        </div>
-                        <div class="food-score">
-                            <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
-                            </div>
-
-                            <div class="f-s">
-                                <span>浏览量：33</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/benifit/list-c.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
-                        </div>
-                        <div class="food-score">
-                            <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
-                            </div>
-
-                            <div class="f-s">
-                                <span>浏览量：33</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/benifit/list-d.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
-                        </div>
-                        <div class="food-score">
-                            <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
-                            </div>
-
-                            <div class="f-s">
-                                <span>浏览量：33</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/benifit/list-a.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
-                        </div>
-                        <div class="food-score">
-                            <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
-                            </div>
-
-                            <div class="f-s">
-                                <span>浏览量：33</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/benifit/list-b.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
-                        </div>
-                        <div class="food-score">
-                            <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
-                            </div>
-
-                            <div class="f-s">
-                                <span>浏览量：33</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/benifit/list-c.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
-                        </div>
-                        <div class="food-score">
-                            <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
-                            </div>
-
-                            <div class="f-s">
-                                <span>浏览量：33</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="" class="content-list service-list">
-                    <div class="img-box">
-                        <img src="../public/imgs/benifit/list-d.png" alt="">
-                    </div>
-                    <div class="text-box service-box food-box">
-                        <h2>【39店铺通用】吉布鲁海鲜自助</h2>
-                        <div class="food-icon">
-                            <h3>香蕉奶昔一份， 提供免费wifi</h3>
-                        </div>
-                        <div class="food-score">
-                            <div class="service-tags">
-                                <span class="s-t">餐饮</span>
-                                <span class="s-game">游戏</span>
-                                <span class="s-share">夺金</span>
-                            </div>
-
-                            <div class="f-s">
-                                <span>浏览量：33</span>
+                                <span ng-bind="'浏览量:'+bitem.browse"></span>
                             </div>
                         </div>
                     </div>
@@ -1016,34 +499,13 @@
                 <div class="section-header hot_header">
                     <h1>热点新闻</h1>
                     <div class="section-nav">
-                        <a href="">全部</a>
+                        <a href="news.html">全部</a>
                     </div>
                 </div>
                 <div class="warp hot-wrap">
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
+                    <a href="news-detail.html" target="_blank" ng-repeat="nitem in newsData" class="job hot-list">
+                        <h2 ng-bind="nitem.title"></h2>
+                        <h5 ng-bind="nitem.create_time"></h5>
                     </a>
                 </div>
             </div>
@@ -1054,40 +516,18 @@
                 <div class="section-header circle_header">
                     <h1>圈子讨论</h1>
                     <div class="section-nav">
-                        <a href="">全部</a>
+                        <a href="circle.html">全部</a>
                     </div>
                 </div>
                 <div class="warp hot-wrap">
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
-                    </a>
-                    <a href="" class="job hot-list">
-                        <span>[纽约 布鲁克林]</span>
-                        <h2>富士康招聘中国技术人员</h2>
-                        <h5>05-25</h5>
+                    <a href="circle-detail.html" target="_blank" class="job hot-list" ng-repeat="circleItem in circleData">
+                        <span ng-bind="'['+circleItem.address+']'"></span>
+                        <h2 ng-bind="circleItem.content.length>20?circleItem.content.substring(0,20)+'...':circleItem.content"></h2>
+                        <h5 ng-bind="circleItem.create_time"></h5>
                     </a>
                 </div>
             </div>
             <!--圈子讨论结束-->
-
-
         </div>
 
 

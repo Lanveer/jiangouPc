@@ -3,45 +3,10 @@
  */
 
 //测试服务器
-// baseUrl='http://106.14.56.22:9529/index.php?r=';
+baseUrl='http://106.14.56.22:9529/index.php?r=';
 
 //正式服务器
- baseUrl='http://54.161.25.252/index.php?r=';
-
-
-//四大模块列表页
-// listHost='http://106.14.56.22:9529/index.php?r=v2/magor/lists';
-
-//基础数据url
-// baseDataHost='http://106.14.56.22:9529/index.php?r=homepage/home/basedata'
-
-//搜索接口
-// searchUrl='http://106.14.56.22:9529/index.php?r=magor/five/fuzzy';
-
-//商家服务接口
-// serviceUrl='http://106.14.56.22:9529/index.php?r=merchant/shop/list';
-
-//附近美食接口
-// foodUrl='http://106.14.56.22:9529/index.php?r=delicacy/food/list';
-
-//周边游接口
-// jourUrl='http://106.14.56.22:9529/index.php?r=newtravel/travel/list';
-
-//周边游搜索词
-// jourSearch='http://106.14.56.22:9529/index.php?r=newtravel/travel/tipword';
-
-//附近优惠
-// benifitUrl='http://106.14.56.22:9529/index.php?r=merchant/shop/privilegelist';
-
-//新闻类型接口
-// newsTypeUrl='http://106.14.56.22:9529/index.php?r=circle/headline/typelist';
-
-//新闻列表
-// newsList= 'http://106.14.56.22:9529/index.php?r=circle/headline/headlinelist';
-//
-//圈子列表
-// circleUrl='http://106.14.56.22:9529/index.php?r=circle/circle/circlelist';
-
+//  baseUrl='http://54.161.25.252/index.php?r=';
 
 
 //获取参数
@@ -119,6 +84,7 @@ $(function () {
 
 //    菜单点击事件
     $('.nav-first').click(function (e) {
+        return;
         e.stopPropagation();
         e.preventDefault();
     var flag=$('.nav-detail').is(':hidden');
@@ -175,7 +141,7 @@ $(function () {
         var idx= $(this).index();
             var idx2=$(this).index()-1
             $('.html-sec').eq(idx).hide();
-            $('.s   ec-item').eq(idx2).hide();
+            $('.sec-item').eq(idx2).hide();
     })
 
 //    服务类型筛选条件
