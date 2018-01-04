@@ -123,18 +123,19 @@ myApp.controller('ListController',function ($scope,$http,$log) {
             id:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
-    })
+    });
     baseDataPromise.then(function (res){
+        console.log('basic data is :',res);
         if(res.data.error==200){
             $scope.category=res.data.data.category;
             $scope.foodCategory=res.data.data.delicacy;
         }
-    })
+    });
     //分类筛选
     $scope.Category = function (category_parent,idx) {
         var args={
             category_parent:category_parent
-        }
+        };
         loadListData(args);
         $('.condition-item-box-cat>a').css({
             background:'#fff',
@@ -380,7 +381,6 @@ myApp.controller('detailController',function ($scope,$http,$log) {
         }else{
             $scope.detailData= res.data.data;
             $scope.bigImg='800_600.jpg';
-            console.log('fooddetail is :',$scope.detailData);
         }
     });
 
@@ -400,7 +400,6 @@ myApp.controller('detailController',function ($scope,$http,$log) {
         }
     });
     picturePromise.then(function (res) {
-        console.log('pic is :',res)
         if(res.data.error!=200){
         }else{
             var imgs=res.data.data;
@@ -415,36 +414,38 @@ myApp.controller('detailController',function ($scope,$http,$log) {
 
 
     // 门店展示列表
-    var storePromise=$http({
-        url:baseUrl+'merchant/shop/stores',
-        method:'get',
-        params:{
-            merchant_id:merchant_id,
-            auth_name:'name',
-            name:1,
-            tx:'3f556f66353c5945a3633ae209a3e0ff'
-        }
-    });
-    storePromise.then(function (res) {
-        if(res.data.error!=200){
-        }else{
-            var store= res.data.data;
-            if(store.length!=0){
-                $scope.store=res.data.data;
-                $scope.haveStore=false;
-            }else{
-                $scope.haveStore=true;
-            }
-        }
-    });
+    // var storePromise=$http({
+    //     url:baseUrl+'merchant/shop/stores',
+    //     method:'get',
+    //     params:{
+    //         merchant_id:merchant_id,
+    //         auth_name:'name',
+    //         name:1,
+    //         tx:'3f556f66353c5945a3633ae209a3e0ff'
+    //     }
+    // });
+    // storePromise.then(function (res) {
+    //     if(res.data.error!=200){
+    //     }else{
+    //         var store= res.data.data;
+    //         if(store.length!=0){
+    //             $scope.store=res.data.data;
+    //             $scope.haveStore=false;
+    //         }else{
+    //             $scope.haveStore=true;
+    //         }
+    //     }
+    // });
 
 
     // 推荐获取
     var recommendPromise=$http({
-        url:baseUrl+'merchant/shop/recommend',
+        url:baseUrl+'delicacy/food/recommend',
         method:'get',
         params:{
-            shop_id:id,
+            id:id,
+            lng:104.06901177707833,
+            lat:30.55102013717875,
             auth_name:'name',
             name:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
@@ -455,6 +456,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
         }else{
             var recommend= res.data.data;
             if(recommend.length!=0){
+                console.log('tuijian data is :',res)
                 $scope.recommend=res.data.data;
                 $scope.haveRecommend=false;
             }else{
@@ -466,11 +468,10 @@ myApp.controller('detailController',function ($scope,$http,$log) {
 
 //    评论列表
     var detailComment=$http({
-        url:baseUrl+'merchant/shop/commentlist',
+        url:baseUrl+'delicacy/food/comments',
         method:'get',
         params:{
-            merchant_id:merchant_id,
-            shop_id:id,
+            food_id:id,
             auth_name:'name',
             name:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'

@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div id="con">
+<div id="con" ng-controller="ListController">
     <top></top>
 
     <div id="search">
@@ -79,7 +79,7 @@
                 <div class="detail-header service-detail-header">
                     <div class="s-d-h-top">
                         <div class="s-d-h-top-left">
-                            <h1 ng-bind="detailData.title">如发热</h1>
+                            <h1 ng-bind="detailData.title"></h1>
                             <h2 ng-bind="detailData.title_en"></h2>
                         </div>
                         <div class="s-d-h-top-right">
@@ -274,8 +274,8 @@
                             <p ng-bind="citem.comments"></p>
 
 
-                            <div class="detail-comment-img" ng-if="citem.imgs.length!=0">
-                                <img src="{{cimg.image}}{{bigImg}}" ng-repeat="cimg in citem.imgs" alt="">
+                            <div class="detail-comment-img" ng-if="citem.images.length!=0">
+                                <img src="{{cimg.image}}{{bigImg}}" ng-repeat="cimg in citem.images" alt="">
                             </div>
                         </div>
                     </div>
@@ -307,33 +307,14 @@
                     </div>
                     <div class="detail-right-person-mendian">
                         <h1>旗下门店</h1>
-                        <a href="" class="detail-right-body-list">
+                        <h2 ng-show="haveStore">暂无门店信息</h2>
+                        <a href="food-detail.html?id={{recommend.id}}" class="detail-right-body-list" target="_blank" ng-repeat="recommend in recommend">
                             <div class="detail-right-body-list-left">
-                                <img src="../public/imgs/used/tuijian.png" alt="">
+                                <img src="{{recommend.image}}{{bigImg}}" alt="">
                             </div>
                             <div class="detail-right-body-list-right">
-                                <h1>宾夕法尼亚酒店</h1>
-                                <h2>Hotel Pensivaliya New....</h2>
-                                <span><span>电话</span> : + 12982842374</span>
-                            </div>
-                        </a>
-                        <a href="" class="detail-right-body-list">
-                            <div class="detail-right-body-list-left">
-                                <img src="../public/imgs/used/tuijian.png" alt="">
-                            </div>
-                            <div class="detail-right-body-list-right">
-                                <h1>宾夕法尼亚酒店</h1>
-                                <h2>Hotel Pensivaliya New....</h2>
-                                <span><span>电话</span> : + 12982842374</span>
-                            </div>
-                        </a>
-                        <a href="" class="detail-right-body-list">
-                            <div class="detail-right-body-list-left">
-                                <img src="../public/imgs/used/tuijian.png" alt="">
-                            </div>
-                            <div class="detail-right-body-list-right">
-                                <h1>宾夕法尼亚酒店</h1>
-                                <h2>Hotel Pensivaliya New....</h2>
+                                <h1 ng-bind="recommend.title.length>10?recommend.title.substring(0,10)+'..': recommend.title"></h1>
+                                <h2 ng-bind="recommend.category_title.length>13?recommend.category_title.substring(0,10)+'..':recommend.category_title"></h2>
                                 <span><span>电话</span> : + 12982842374</span>
                             </div>
                         </a>
@@ -343,34 +324,14 @@
 
                 <div class="detail-right-body">
                     <h1>精选推荐</h1>
-                    <a href="" class="detail-right-body-list">
+                    <a href="food-detail.html?id={{recommend.id}}" class="detail-right-body-list" target="_blank" ng-repeat="recommend in recommend">
                         <div class="detail-right-body-list-left">
-                            <img src="../public/imgs/used/tuijian.png" alt="">
+                            <img src="{{recommend.image}}{{bigImg}}" alt="">
                         </div>
-                        <div class="detail-right-body-list-right detail-right-body-list-right-food">
-                            <h1>宾夕法尼亚酒店</h1>
-                            <h2>中国美食 川菜湘菜</h2>
-                            <span>$160/人</span>
-                        </div>
-                    </a>
-                    <a href="" class="detail-right-body-list">
-                        <div class="detail-right-body-list-left">
-                            <img src="../public/imgs/used/tuijian.png" alt="">
-                        </div>
-                        <div class="detail-right-body-list-right detail-right-body-list-right-food">
-                            <h1>宾夕法尼亚酒店</h1>
-                            <h2>中国美食 川菜湘菜</h2>
-                            <span>$160/人</span>
-                        </div>
-                    </a>
-                    <a href="" class="detail-right-body-list">
-                        <div class="detail-right-body-list-left">
-                            <img src="../public/imgs/used/tuijian.png" alt="">
-                        </div>
-                        <div class="detail-right-body-list-right detail-right-body-list-right-food">
-                            <h1>宾夕法尼亚酒店</h1>
-                            <h2>中国美食 川菜湘菜</h2>
-                            <span>$160/人</span>
+                        <div class="detail-right-body-list-right">
+                            <h1 ng-bind="recommend.title.length>10?recommend.title.substring(0,10)+'..': recommend.title"></h1>
+                            <h2 ng-bind="recommend.category_title.length>13?recommend.category_title.substring(0,10)+'..':recommend.category_title"></h2>
+                            <span><span>电话</span> : + 12982842374</span>
                         </div>
                     </a>
                 </div>
