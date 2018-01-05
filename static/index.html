@@ -36,19 +36,19 @@
             <div class="key">
                 <span ng-bind="category[0].title"></span>
                 <div class="key-list">
-                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                    <a href="{{urls[$index]}}" target="_blank" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
                 </div>
             </div>
 
             <div class="search-input">
                 <span></span>
-                <input type="text" placeholder="请输入关键字进行搜索" ng-model="kwd" ng-blur="search(kwd)">
+                <input type="text" placeholder="请输入关键字进行搜索" ng-model="kwd" ng-blur="searchtttt(kwd)">
                 <div class="search-list" ng-if="searchListFlag">
-                    <a href="" ng-repeat="searchList in searchListData" ng-bind="searchList.title" ng-click="searchDetail(searchList.title)"></a>
+                    <a href="" ng-repeat="searchList in searchListData" ng-bind="searchList.title" ng-click="searchDetailtttttt(searchList.title)"></a>
                 </div>
             </div>
 
-            <div class="search-btn" ng-click="searchResult(kwd)">
+            <div class="search-btn" ng-click="searchResultttt(kwd)">
                 搜索
             </div>
         </div>
@@ -80,10 +80,10 @@
                 <div class="sec-item sec-a" ng-repeat="navList in category">
                     <div class="sec-header">
                         <h1 ng-bind="navList.title"></h1>
-                        <span>更多</span>
+                        <a href="{{urls[$index]}}" target="_blank">更多</a>
                     </div>
                     <div class="sec-body">
-                        <a href="" ng-repeat="s_navList in navList.child" ng-bind="s_navList.title"></a>
+                        <a href=""  ng-click="click(s_navList.id)" target="_blank" ng-repeat="s_navList in navList.child" ng-bind="s_navList.title"></a>
                     </div>
                 </div>
             </div>

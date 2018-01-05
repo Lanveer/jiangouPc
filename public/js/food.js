@@ -128,6 +128,7 @@ myApp.controller('ListController',function ($scope,$http,$log) {
         console.log('basic data is :',res);
         if(res.data.error==200){
             $scope.category=res.data.data.category;
+
             $scope.foodCategory=res.data.data.delicacy;
         }
     });

@@ -457,7 +457,7 @@ img {
     font-weight:normal;
 }
 
-.sec-header>span{
+.sec-header>a{
     font-size: 12px;
     color: #ccc;
     width:40px;
