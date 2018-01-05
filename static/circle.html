@@ -27,7 +27,7 @@
             <div class="key">
                 <span ng-bind="category[0].title"></span>
                 <div class="key-list">
-                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                    <a href="{{urls[$index]}}" target="_blank" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
 
         <div class="content">
             <div class="news circle">
-                <a href="" class="circle-list" ng-repeat="item in listData">
+                <a href="circle-detail.html?id={{item.id}}" target="_blank" class="circle-list" ng-repeat="item in listData">
                     <div class="list-header">
                         <div class="icon">
                             <img src="{{item.header_img}}" alt="">

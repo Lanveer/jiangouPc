@@ -99,7 +99,6 @@ myApp.controller('indexController',function ($scope,$http,$log) {
             ];
 
             $scope.click= function (idx) {
-              console.log(idx);
               var u1='6,7,8,9,10,11,12,13';
               var u2='14,15,16,17,18,19,20,';
                 if(parseInt(idx)>=6 && parseInt(idx)<=13){

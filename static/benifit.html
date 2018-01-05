@@ -28,7 +28,7 @@
             <div class="key">
                 <span ng-bind="category[0].title"></span>
                 <div class="key-list">
-                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                    <a href="{{urls[$index]}}" target="_blank" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
 
         <div id="content">
             <h1 ng-if="havaData">暂时没有相关的数据</h1>
-            <a href="" class="content-list service-list" ng-repeat=" item in listData">
+            <a href="benifit-detail.html?id={{item.privilege_id}}" target="_blank" class="content-list service-list" ng-repeat=" item in listData">
                 <div class="img-box">
                     <img src="{{item.image}}{{bigImg}}" alt="">
                 </div>

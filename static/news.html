@@ -27,7 +27,7 @@
             <div class="key">
                 <span ng-bind="category[0].title"></span>
                 <div class="key-list">
-                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                    <a href="{{urls[$index]}}" target="_blank" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
                 </div>
                 <div class="news-tab">
                     <h1 ng-if="havaData">暂时没有相关的新闻数据</h1>
-                    <a href="" ng-repeat="item in listData">
+                    <a href="news-detail.html?id={{item.headline_id}}" target="_blank" ng-repeat="item in listData">
                         <div class="news-left">
                             <img src="{{item.img}}" alt="">
                         </div>
@@ -128,6 +128,7 @@
 <script src="../public/lib/angular.min.js"></script>
 <script src="../public/lib/ui-bootstrap.min.js"></script>
 <script src="../public/lib/ui-bootstrap-tpls.min.js"></script>
+<script src="../public/lib/angular-sanitize.min.js"></script>
 <script src="../public/js/basic.js"></script>
 <script src="../public/js/news.js"></script>
 </html>

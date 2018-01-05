@@ -57,13 +57,13 @@
     <!--顶部导航开始-->
     <div class="banner-nav">
         <div class="nav">
-            <a href="" class="nav-first">全部 </a>
-            <a href="index.html">首页</a>
-            <a href="food.html">美食</a>
-            <a href="benifit.html">优惠</a>
-            <a href="jour.html">景点</a>
-            <a href="news.html">新闻</a>
-            <a href="circle.html">圈子</a>
+            <a href="" class="nav-first" >全部 </a>
+            <a href="index.html" target="_self">首页</a>
+            <a href="food.html" target="_self">美食</a>
+            <a href="benifit.html" target="_self">优惠</a>
+            <a href="jour.html" target="_self">景点</a>
+            <a href="news.html" target="_self">新闻</a>
+            <a href="circle.html" target="_self">圈子</a>
         </div>
 
         <div class="nav-list index-nav-list">
@@ -492,7 +492,6 @@
         </div>
         <!--优惠折扣结束-->
 
-
         <div class="section">
             <!--热点新闻开始-->
             <div class="section hot">
@@ -503,7 +502,7 @@
                     </div>
                 </div>
                 <div class="warp hot-wrap">
-                    <a href="news-detail.html" target="_blank" ng-repeat="nitem in newsData" class="job hot-list">
+                    <a href="news-detail.html?id={{nitem.headline_id}}" target="_blank" ng-repeat="nitem in newsData" class="job hot-list">
                         <h2 ng-bind="nitem.title"></h2>
                         <h5 ng-bind="nitem.create_time"></h5>
                     </a>
@@ -520,7 +519,7 @@
                     </div>
                 </div>
                 <div class="warp hot-wrap">
-                    <a href="circle-detail.html" target="_blank" class="job hot-list" ng-repeat="circleItem in circleData">
+                    <a href="circle-detail.html?id={{circleItem.id}}" target="_blank" class="job hot-list" ng-repeat="circleItem in circleData">
                         <span ng-bind="'['+circleItem.address+']'"></span>
                         <h2 ng-bind="circleItem.content.length>20?circleItem.content.substring(0,20)+'...':circleItem.content"></h2>
                         <h5 ng-bind="circleItem.create_time"></h5>

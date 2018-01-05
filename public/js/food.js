@@ -128,8 +128,29 @@ myApp.controller('ListController',function ($scope,$http,$log) {
         console.log('basic data is :',res);
         if(res.data.error==200){
             $scope.category=res.data.data.category;
-
             $scope.foodCategory=res.data.data.delicacy;
+            $scope.urls=[
+                'used.html',
+                'cars.html',
+                'job.html',
+                'house.html',
+                'service.html'
+            ];
+            $scope.click= function (idx) {
+                var u1='6,7,8,9,10,11,12,13';
+                var u2='14,15,16,17,18,19,20,';
+                if(parseInt(idx)>=6 && parseInt(idx)<=13){
+                    window.open('used.html?id='+idx+'')
+                }else if(parseInt(idx)>=14 && parseInt(idx)<=27){
+                    window.open('cars.html?id='+idx+'')
+                }else if(parseInt(idx)>=28 && parseInt(idx)<=39){
+                    window.open('job.html?id='+idx+'')
+                }else if(parseInt(idx)>=40 && parseInt(idx)<=46){
+                    window.open('house.html?id='+idx+'')
+                }else if(parseInt(idx)>=47 && parseInt(idx)<=65){
+                    window.open('used.html?id='+idx+'')
+                }
+            };
         }
     });
     //分类筛选
@@ -491,6 +512,7 @@ myApp.controller('detailController',function ($scope,$http,$log) {
                 $scope.totalItems = Number(res.data.data[0].total_count);
             }else{
                 $scope.havaComment=true;
+                $scope.totalItems=0
             }
         }
     });

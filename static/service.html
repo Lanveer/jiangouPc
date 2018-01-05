@@ -25,9 +25,9 @@
 
         <div class="search-box">
             <div class="key">
-                <span ng-bind="category[0].title"></span>
+                <span ng-bind="category[4].title"></span>
                 <div class="key-list">
-                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                    <a href="{{urls[$index]}}" target="_blank" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
                 </div>
             </div>
 

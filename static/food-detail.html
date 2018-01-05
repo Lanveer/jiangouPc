@@ -28,7 +28,7 @@
             <div class="key">
                 <span ng-bind="category[0].title"></span>
                 <div class="key-list">
-                    <a href="" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
+                    <a href="{{urls[$index]}}" target="_blank" ng-repeat="categoryList in category" ng-bind="categoryList.title"></a>
                 </div>
             </div>
 
@@ -324,6 +324,7 @@
 
                 <div class="detail-right-body">
                     <h1>精选推荐</h1>
+                    <h2 ng-show="haveRecommend">暂无推荐信息</h2>
                     <a href="food-detail.html?id={{recommend.id}}" class="detail-right-body-list" target="_blank" ng-repeat="recommend in recommend">
                         <div class="detail-right-body-list-left">
                             <img src="{{recommend.image}}{{bigImg}}" alt="">

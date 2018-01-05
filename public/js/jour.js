@@ -124,15 +124,38 @@ myApp.controller('ListController',function ($scope,$http,$log) {
             id:1,
             tx:'3f556f66353c5945a3633ae209a3e0ff'
         }
-    })
+    });
     baseDataPromise.then(function (res){
         if(res.data.error==200){
             $scope.usedCategory=res.data.data.category[2].child;
             $scope.usedLocation=res.data.data.filtercity;
             $scope.category=res.data.data.category;
             $scope.jourCategory=res.data.data.travel;
+            $scope.urls=[
+                'used.html',
+                'cars.html',
+                'job.html',
+                'house.html',
+                'service.html'
+            ];
+
+            $scope.click= function (idx) {
+                var u1='6,7,8,9,10,11,12,13';
+                var u2='14,15,16,17,18,19,20,';
+                if(parseInt(idx)>=6 && parseInt(idx)<=13){
+                    window.open('used.html?id='+idx+'')
+                }else if(parseInt(idx)>=14 && parseInt(idx)<=27){
+                    window.open('cars.html?id='+idx+'')
+                }else if(parseInt(idx)>=28 && parseInt(idx)<=39){
+                    window.open('job.html?id='+idx+'')
+                }else if(parseInt(idx)>=40 && parseInt(idx)<=46){
+                    window.open('house.html?id='+idx+'')
+                }else if(parseInt(idx)>=47 && parseInt(idx)<=65){
+                    window.open('used.html?id='+idx+'')
+                }
+            };
         }
-    })
+    });
     //展示下拉菜单
     $scope.showMenu= function (val) {
        var flag=  $('#'+val+'').is(':hidden');
@@ -389,7 +412,154 @@ myApp.controller('ListController',function ($scope,$http,$log) {
             },10);
         })
     };
-})
+});
+
+myApp.controller('detailController',function ($scope,$http,$log) {
+    //    详情页内容
+    url = window.location.href;
+    re = getQueryString(url);
+    var id= re.id;
+    var merchant_id= re.merchant_id;
+
+
+    var detailPromise=$http({
+        url:baseUrl+'newtravel/travel/details',
+        method:'get',
+        params:{
+            travel_id:id,
+            auth_name:'name',
+            name:1,
+            user_id:1402,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    detailPromise.then(function (res) {
+        if(res.data.error!=200){
+            //获取详情出错
+        }else{
+            $scope.detailData= res.data.data;
+            $scope.bigImg='800_600.jpg';
+        }
+    });
+
+
+    //获取图片信息
+    var picturePromise=$http({
+        url:baseUrl+'newtravel/travel/images',
+        method:'get',
+        params:{
+            travel_id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    picturePromise.then(function (res) {
+        if(res.data.error!=200){
+        }else{
+            var imgs=res.data.data;
+            if(imgs.length>1){
+                var imgData=res.data.data;
+                imgData.shift();
+                $scope.imgs=imgData;
+            }else{
+            }
+        }
+    });
+
+
+
+    // 推荐获取
+    var recommendPromise=$http({
+        url:baseUrl+'newtravel/travel/recommend',
+        method:'get',
+        params:{
+            id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    recommendPromise.then(function (res) {
+        console.log('tuijian data is:',res)
+        if(res.data.error!=200){
+        }else{
+            var recommend= res.data.data;
+            if(recommend.length!=0){
+                $scope.recommend=res.data.data;
+                $scope.haveRecommend=false;
+            }else{
+                $scope.haveRecommend=true;
+            }
+        }
+    });
+
+
+//    评论列表
+    var detailComment=$http({
+        url:baseUrl+'newtravel/travel/comments',
+        method:'get',
+        params:{
+            travel_id:id,
+            auth_name:'name',
+            name:1,
+            tx:'3f556f66353c5945a3633ae209a3e0ff'
+        }
+    });
+    detailComment.then(function (res) {
+        console.log('comment is :',res);
+        if(res.data.error!=200){
+            //获取详情出错
+        }else{
+            if(res.data.data.length!=0){
+                $scope.commentList=res.data.data;
+                $scope.havaComment=false;
+                $scope.maxSize = 5;
+                $scope.currentPage = 1;
+                $scope.dtotalItems = Number(res.data.data[0].total_count);
+            }else{
+                $scope.dtotalItems = 0;
+                $scope.havaComment=true;
+            }
+        }
+    });
+
+
+//    分页
+    $scope.pageChangedDetail= function () {
+        $log.log('Page changed to: ' + $scope.currentPage);
+        var detailComment=$http({
+            url:baseUrl+'magor/five/comments',
+            method:'get',
+            params:{
+                id:id,
+                grand_id:2,
+                auth_name:'name',
+                name:1,
+                page:$scope.currentPage,
+                tx:'3f556f66353c5945a3633ae209a3e0ff'
+            }
+        });
+        detailComment.then(function (res) {
+            if(res.data.error!=200){
+                //获取详情出错
+            }else{
+                $scope.commentList=res.data.data
+                if(res.data.data.length!=0){
+                    $scope.havaData=false;
+                    $scope.maxSize = 5;
+                    $scope.currentPage = 1;
+                    $scope.totalItems = Number(res.data.data[0].total_count);
+                }else{
+                    $scope.havaData=true;
+                }
+            }
+
+        })
+    }
+});
+
+
 
 
 
